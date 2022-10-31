@@ -3,14 +3,14 @@
 @section('content')
     <div class="row justify-content-center">
 
-        <div class="" style="width: 1500px; height: 700px">
+        <div class="" style="width: 1500px; height: 500px">
 
             <div class="card-deck o-hidden border-0 shadow-lg my-5 bg-light" style="height: 500px">
                 <div class="card-body p-0">
 
                     <!-- Nested Row within Card Body -->
                     <div class="row">
-                        <div class="card o-hidden border-0 bg-primary text-white" style="border-radius: 0%">
+                        <div class="card o-hidden border-0 bg-primary text-white" style="border-radius: 0%; height: 500px">
                             <div class="row">
                                 <div class="column" style="float: left; padding: 5px;">
                                     <img width="100"
