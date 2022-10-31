@@ -3,14 +3,14 @@
 @section('content')
     <div class="row justify-content-center">
 
-        <div class="col-xl-10 col-lg-12 col-md-9">
+        <div class="" style="width: 1500px; height: 500px">
 
-            <div class="card-deck o-hidden border-0 shadow-lg my-5 bg-light">
+            <div class="card-deck o-hidden border-0 shadow-lg my-5 bg-light" style="height: 500px">
                 <div class="card-body p-0">
 
                     <!-- Nested Row within Card Body -->
                     <div class="row">
-                        <div class="card o-hidden border-0 bg-primary text-white" style="border-radius: 0%">
+                        <div class="card o-hidden border-0 bg-primary text-white" style="border-radius: 0%; height: 500px">
                             <div class="row">
                                 <div class="column" style="float: left; padding: 5px;">
                                     <img width="100"
@@ -24,9 +24,29 @@
                             </div>
                             <div class="card-body">
                                 <p style="margin-top: 20px">Selamat datang</p>
-                                <p style="font-size: 20px"><b> Sistem Informasi Penilaian<br> Kesesuaian Pelaksanaan
+                                <p style="font-size: 20px; margin-bottom:200px"><b> Sistem Informasi Penilaian<br> Kesesuaian Pelaksanaan
                                         Perkuliahan
                                     </b></p>
+                            </div>
+                            <div class="card-body">
+                                <div class="column" style="float: left; padding: 5px;">
+                                <a href="https://www.youtube.com/channel/UCq769ou-Gy0z5b8Nzgv4kfg">    
+                                    <img width="13" src="http://localhost:8000/assets/youtube.png" style="margin-left: 10px">
+                                </a>
+                                    <b style="font-size: 12px">TI POLIWANGI TV</b>
+                                </div>
+                                <div class="column" style="float: left; padding: 5px;">
+                                <a href="https://www.instagram.com/tipoliwangi/">    
+                                    <img width="13" src="http://localhost:8000/assets/instagram.png" style="margin-left: 10px">
+                                </a>    
+                                    <b style="font-size: 12px">@tipoliwangi</b>
+                                </div>
+                                <div class="column" style="float: left; padding: 5px;">
+                                <a href="https://ti.poliwangi.ac.id/">
+                                    <img width="13" src="http://localhost:8000/assets/browser.png" style="margin-left: 10px">
+                                </a>    
+                                    <b style="font-size: 12px">ti.poliwangi.ac.id</b>
+                                </div>
                             </div>
                         </div>
 
