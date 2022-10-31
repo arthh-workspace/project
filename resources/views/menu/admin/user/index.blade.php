@@ -53,7 +53,7 @@
                                                     <a href="" class="btn btn-info btn-sm"><i
                                                             class="nav-icon fas fa-eye"></i>Details
                                                     </a>
-                                                    <a href="" class="btn btn-success btn-sm"><i
+                                                    <a href="{{ route('user.edit', Crypt::encrypt($data->id)) }}" class="btn btn-success btn-sm"><i
                                                             class="nav-icon fas fa-edit"></i>Edit
                                                     </a>
                                                     <button class="btn btn-danger btn-sm"><i

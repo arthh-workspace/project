@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
@@ -69,9 +70,11 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $id = Crypt::decrypt($id);
+        $user = User::findorfail($id);
+        return view('menu.admin.user.edit', compact('user'));
     }
 
     /**
@@ -92,7 +95,7 @@ class UserController extends Controller
                 'role' => $request->role,
             ]);
 
-        return redirect()->route('tampilsantri');
+        return redirect()->route('user');
     }
 
     /**
