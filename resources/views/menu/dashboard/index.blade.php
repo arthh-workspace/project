@@ -1,17 +1,23 @@
-@extends('layouts.main')
-@section('container')
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Welcome Back, {{ Auth::user()->name }}</h1>
-        {{-- <h1 class="h2">{{ $users->mahasiswa->nim }}</h1> --}}
-            <div class="btn-toolbar mb-2 mb-md-0">
-                <div class="btn-group me-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Halo</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-                </div>
-                <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                    <span data-feather="calendar" class="align-text-bottom"></span>
-                    This week
-                </button>
-            </div>
+@extends('layout.main')
+@section('web')
+    <h1 class="m-0">Dashboard</h1>
+@endsection
+@section('page')
+    <li class="breadcrumb-item active">Dashboard</li>
+@endsection
+@section('content')
+    <p align="center">Tampilan Profil Data</p>
+    <div id="wrapper">
+        <div class="titleprofile">Profil Saya</div>
+        <div class="photoprofile">
+            <img src="logo.png" class="imgprofile"></img>
+        </div>
+        <div class="dataprofile">Website ini adalah website yang menyediakan tutorial tentang teknologi yang terutama desain
+            grafis.<br>No. Kontak : 0123-4567-8901</div>
     </div>
+@endsection
+@section('script')
+    <script type="text/javascript">
+        $("#Dashboard").addClass("active");
+    </script>
 @endsection

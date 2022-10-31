@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Admin\Mahasiswa_Controller;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +22,16 @@ Route::post('/login', [LoginController::class, 'store'])->name('login');
 Route::get('/logout', [LoginController::class, 'create'])->name('logout');
 
 // Dashboard
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index'])->name('dashboard');
 
 // Admin
-Route::get('/user_m', [Mahasiswa_Controller::class, 'index'])->name('user.m');
+Route::get('/user', [UserController::class, 'index'])->name('user');
+Route::get('/user/search', [UserController::class, 'search'])->name('user.search');
+Route::get('/user/create', [UserController::class, 'create'])->name('user.add');
+Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
+Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+Route::patch('/user/update/{id}', [UserController::class, 'update'])->name('user.update');
+Route::delete('/user/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 
 // dosen
 
