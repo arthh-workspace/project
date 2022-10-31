@@ -3,9 +3,9 @@
 @section('content')
     <div class="row justify-content-center">
 
-        <div class="col-xl-10 col-lg-12 col-md-9">
+        <div class="" style="width: 1500px; height: 700px">
 
-            <div class="card-deck o-hidden border-0 shadow-lg my-5 bg-light">
+            <div class="card-deck o-hidden border-0 shadow-lg my-5 bg-light" style="height: 500px">
                 <div class="card-body p-0">
 
                     <!-- Nested Row within Card Body -->
@@ -24,7 +24,7 @@
                             </div>
                             <div class="card-body">
                                 <p style="margin-top: 20px">Selamat datang</p>
-                                <p style="font-size: 20px"><b> Sistem Informasi Penilaian<br> Kesesuaian Pelaksanaan
+                                <p style="font-size: 20px; margin-bottom:200px"><b> Sistem Informasi Penilaian<br> Kesesuaian Pelaksanaan
                                         Perkuliahan
                                     </b></p>
                             </div>
