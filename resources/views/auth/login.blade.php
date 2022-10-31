@@ -28,6 +28,26 @@
                                         Perkuliahan
                                     </b></p>
                             </div>
+                            <div class="card-body">
+                                <div class="column" style="float: left; padding: 5px;">
+                                <a href="https://www.youtube.com/channel/UCq769ou-Gy0z5b8Nzgv4kfg">    
+                                    <img width="13" src="http://localhost:8000/assets/youtube.png" style="margin-left: 10px">
+                                </a>
+                                    <b style="font-size: 12px">TI POLIWANGI TV</b>
+                                </div>
+                                <div class="column" style="float: left; padding: 5px;">
+                                <a href="https://www.instagram.com/tipoliwangi/">    
+                                    <img width="13" src="http://localhost:8000/assets/instagram.png" style="margin-left: 10px">
+                                </a>    
+                                    <b style="font-size: 12px">@tipoliwangi</b>
+                                </div>
+                                <div class="column" style="float: left; padding: 5px;">
+                                <a href="https://ti.poliwangi.ac.id/">
+                                    <img width="13" src="http://localhost:8000/assets/browser.png" style="margin-left: 10px">
+                                </a>    
+                                    <b style="font-size: 12px">ti.poliwangi.ac.id</b>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-lg-6">
