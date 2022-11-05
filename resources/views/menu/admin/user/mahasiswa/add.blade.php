@@ -28,11 +28,11 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nama">Nama </label>
-                                    <input type="text" name="nama" value="{{ old('nama') }}"
-                                        class="form-control @error('nama') is-invalid @enderror" placeholder="Nama">
+                                    <label for="name">Nama </label>
+                                    <input type="text" name="name" value="{{ old('name') }}"
+                                        class="form-control @error('name') is-invalid @enderror" placeholder="Nama">
                                     <div class="text-danger">
-                                        @error('nama')
+                                        @error('name')
                                             Nama tidak boleh kosong.
                                         @enderror
                                     </div>

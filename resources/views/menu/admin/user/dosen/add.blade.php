@@ -28,11 +28,11 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nama">Nama </label>
-                                    <input type="text" name="nama" value="{{ old('nama') }}"
-                                        class="form-control @error('nama') is-invalid @enderror" placeholder="Nama">
+                                    <label for="name">Nama </label>
+                                    <input type="text" name="name" value="{{ old('name') }}"
+                                        class="form-control @error('name') is-invalid @enderror" placeholder="Nama">
                                     <div class="text-danger">
-                                        @error('nama')
+                                        @error('name')
                                             Nama tidak boleh kosong.
                                         @enderror
                                     </div>
@@ -60,7 +60,9 @@
                                 <div class="form-group">
                                     <label for="password">Password</label>
                                     <div class="input-group">
-                                        <input type="password" name="password" id="pass" value="{{ old('password') }}" class="form-control @error('password') is-invalid @enderror" placeholder="Password">
+                                        <input type="password" name="password" id="pass" value="{{ old('password') }}"
+                                            class="form-control @error('password') is-invalid @enderror"
+                                            placeholder="Password">
                                         <div class="input-group-append">
 
                                             <!-- kita pasang onclick untuk merubah icon buka/tutup mata setiap diklik  -->
@@ -78,16 +80,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="form-group">
-                                    <label for="password">Password </label>
-                                    <input type="password" name="password" value="{{ old('password') }}"
-                                        class="form-control @error('password') is-invalid @enderror" placeholder="Password">
-                                    <div class="text-danger">
-                                        @error('password')
-                                            Password tidak boleh kosong.
-                                        @enderror
-                                    </div>
-                                </div> --}}
                                 <div class="form-group">
                                     <label for="role">Kepala Bagian</label>
                                     <select name="role" value="{{ old('role') }}"
@@ -106,15 +98,25 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="foto">Foto </label>
-                                    <input type="text" name="foto" value="{{ old('foto') }}"
-                                        class="form-control @error('foto') is-invalid @enderror" placeholder="Foto">
+                                    <label for="foto">Pilih File</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file"
+                                                class="custom-file-input @error('foto') is-invalid @enderror"
+                                                name="foto">
+                                            <label class="custom-file-label" for="foto">Pilih Foto</label>
+                                        </div>
+                                    </div>
                                     <div class="text-danger">
                                         @error('foto')
                                             Foto tidak boleh kosong.
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Default file input example</label>
+                                    <input class="form-control" type="file" id="formFile">
+                                  </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer justify-content-between">
@@ -136,6 +138,9 @@
 @endsection
 @section('script')
     <script type="text/javascript">
+        $(document).ready(function() {
+            bsCustomFileInput.init();
+        });
         $("#masteruser").addClass("menu-open");
         $("#user").addClass("active");
         $("#dosen").addClass("active");
