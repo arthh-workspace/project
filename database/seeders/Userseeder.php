@@ -18,7 +18,6 @@ class Userseeder extends Seeder
         $users = [
             [
                 'id'                    => 1,
-                'name'                  => 'Admin',
                 'username'              => 'admin',
                 'email'                 => 'admin@gmail.com',
                 'email_verified_at'     => NULL,
@@ -30,7 +29,6 @@ class Userseeder extends Seeder
             ],
             [
                 'id'                    => 5,
-                'name'                  => 'Gugus_kendali',
                 'username'              => 'gugus_k',
                 'email'                 => 'gugus@gmail.com',
                 'email_verified_at'     => NULL,
@@ -42,7 +40,6 @@ class Userseeder extends Seeder
             ],
             [
                 'id'                    => 2,
-                'name'                  => 'Dosen_pengampu',
                 'username'              => 'dosen_p',
                 'email'                 => 'dosen@gmail.com',
                 'email_verified_at'     => NULL,
@@ -54,7 +51,6 @@ class Userseeder extends Seeder
             ],
             [
                 'id'                    => 4,
-                'name'                  => 'Dosen_koor',
                 'username'              => 'dosen_k',
                 'email'                 => 'dosen2@gmail.com',
                 'email_verified_at'     => NULL,
@@ -66,7 +62,6 @@ class Userseeder extends Seeder
             ],
             [
                 'id'                    => 3,
-                'name'                  => 'Mahasiswa',
                 'username'              => '362055401186',
                 'email'                 => 'mahasiswa@gmail.com',
                 'email_verified_at'     => NULL,

@@ -30,21 +30,21 @@
                             </div>
                             <div class="card-body">
                                 <div class="column" style="float: left; padding: 5px;">
-                                <a href="https://www.youtube.com/channel/UCq769ou-Gy0z5b8Nzgv4kfg">    
-                                    <img width="13" src="http://localhost:8000/assets/youtube.png" style="margin-left: 10px">
+                                <a href="https://www.youtube.com/channel/UCq769ou-Gy0z5b8Nzgv4kfg">
+                                    <img width="13" src="{{asset('assets/youtube.png')}}" style="margin-left: 10px">
                                 </a>
                                     <b style="font-size: 12px">TI POLIWANGI TV</b>
                                 </div>
                                 <div class="column" style="float: left; padding: 5px;">
-                                <a href="https://www.instagram.com/tipoliwangi/">    
-                                    <img width="13" src="http://localhost:8000/assets/instagram.png" style="margin-left: 10px">
-                                </a>    
+                                <a href="https://www.instagram.com/tipoliwangi/">
+                                    <img width="13" src="{{asset('assets/instagram.png')}}" style="margin-left: 10px">
+                                </a>
                                     <b style="font-size: 12px">@tipoliwangi</b>
                                 </div>
                                 <div class="column" style="float: left; padding: 5px;">
                                 <a href="https://ti.poliwangi.ac.id/">
-                                    <img width="13" src="http://localhost:8000/assets/browser.png" style="margin-left: 10px">
-                                </a>    
+                                    <img width="13" src="{{asset('assets/browser.png')}}" style="margin-left: 10px">
+                                </a>
                                     <b style="font-size: 12px">ti.poliwangi.ac.id</b>
                                 </div>
                             </div>
@@ -76,7 +76,8 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <input id="password" type="password"
+                                        <div class="input-group">
+                                            <input id="pass" type="password"
                                             class="form-control form-control-user @error('password') is-invalid @enderror"
                                             name="password" required autocomplete="current-password" placeholder="Password">
 
@@ -85,13 +86,25 @@
                                                 <strong></strong>
                                             </span>
                                         @enderror
+                                            <div class="input-group-append">
+                                                <span id="mybutton" onclick="change()" class="input-group-text">
+                                                    <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                                        class="bi bi-eye-fill" fill="currentColor"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                                        <path fill-rule="evenodd"
+                                                            d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
-                                            {{-- <input class="custom-control-input" type="checkbox" name="remember" id="customCheck" {{ old('remember') ? 'checked' : '' }}>
+                                            <input class="custom-control-input" type="checkbox" name="remember" id="customCheck" {{ old('remember') ? 'checked' : '' }}>
 
                                         <label class="custom-control-label" for="customCheck">Remember
-                                            Me</label> --}}
+                                            Me</label>
                                         </div>
 
                                     </div>

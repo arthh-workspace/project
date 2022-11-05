@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\UserDController;
+use App\Http\Controllers\Admin\UserMController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ use App\Http\Controllers\Admin\UserController;
 
 //Login
 Route::get('/', [LoginController::class, 'index'])->middleware('guest');
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'store'])->name('login');
 Route::get('/logout', [LoginController::class, 'create'])->name('logout');
 
@@ -25,13 +27,23 @@ Route::get('/logout', [LoginController::class, 'create'])->name('logout');
 Route::get('/home', [HomeController::class, 'index'])->name('dashboard');
 
 // Admin
-Route::get('/user', [UserController::class, 'index'])->name('user');
-Route::get('/user/search', [UserController::class, 'search'])->name('user.search');
-Route::get('/user/create', [UserController::class, 'create'])->name('user.add');
-Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
-Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
-Route::patch('/user/update/{id}', [UserController::class, 'update'])->name('user.update');
-Route::delete('/user/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+////////// User Dosen /////////
+Route::get('/user_dosen', [UserDController::class, 'index'])->name('user.dosen');
+Route::get('/user_dosen/create', [UserDController::class, 'create'])->name('user.dosen.add');
+Route::post('/user_dosen/store', [UserDController::class, 'store'])->name('user.dosen.store');
+Route::get('/user_dosen/edit/{id}', [UserDController::class, 'edit'])->name('user.dosen.edit');
+Route::patch('/user_dosen/update/{id}', [UserDController::class, 'update'])->name('user.dosen.update');
+Route::delete('/user_dosen/destroy/{id}', [UserDController::class, 'destroy'])->name('user.dosen.destroy');
+///////// User Mahasiswa /////////
+Route::get('/user_mahasiswa', [UserMController::class, 'index'])->name('user.mahasiswa');
+Route::get('/user_mahasiswa/create', [UserMController::class, 'create'])->name('user.mahasiswa.add');
+Route::post('/user_mahasiswa/store', [UserMController::class, 'store'])->name('user.mahasiswa.store');
+Route::get('/user_mahasiswa/edit/{id}', [UserMController::class, 'edit'])->name('user.mahasiswa.edit');
+Route::patch('/user_mahasiswa/update/{id}', [UserMController::class, 'update'])->name('user.mahasiswa.update');
+Route::delete('/user_mahasiswa/destroy/{id}', [UserMController::class, 'destroy'])->name('user.mahasiswa.destroy');
+
+
+
 
 // dosen
 

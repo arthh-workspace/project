@@ -6,14 +6,45 @@
     <li class="breadcrumb-item active">Dashboard</li>
 @endsection
 @section('content')
-    <p align="center">Tampilan Profil Data</p>
+    <p align="center">Profil Saya</p>
     <div id="wrapper">
-        <div class="titleprofile">Profil Saya</div>
-        <div class="photoprofile">
-            <img src="logo.png" class="imgprofile"></img>
-        </div>
-        <div class="dataprofile">Website ini adalah website yang menyediakan tutorial tentang teknologi yang terutama desain
-            grafis.<br>No. Kontak : 0123-4567-8901</div>
+        {{-- Profile Mahasiswa --}}
+        @can('mahasiswa')
+            <div class="photoprofile">
+                <img src="logo.png" class="imgprofile"></img>
+            </div>
+            <h1>Nama : {{ Auth::user()->mahasiswa->nama }}</h1>
+            <h1>Nim : {{ Auth::user()->mahasiswa->nim }}</h1>
+            <h1>Jenis Kelamin : {{ Auth::user()->mahasiswa->jenis_kelamin }}</h1>
+        @endcan
+        {{-- Profile Dosen --}}
+        @can('dosen_pengampu')
+            <div class="photoprofile">
+                <img src="logo.png" class="imgprofile"></img>
+            </div>
+            <h1>Nama : {{ Auth::user()->dosen->nama }}</h1>
+            <h1>Nip : {{ Auth::user()->dosen->nip }}</h1>
+            <h1>Jenis Kelamin : {{ Auth::user()->dosen->jenis_kelamin }}</h1>
+        @endcan
+        @can('dosen_koor')
+            <div class="photoprofile">
+                <img src="logo.png" class="imgprofile"></img>
+            </div>
+            <h1>Nama : {{ Auth::user()->dosen > nama }}</h1>
+            <h1>Nip : {{ Auth::user()->dosen->nip }}</h1>
+            <h1>Jenis Kelamin : {{ Auth::user()->dosen->jenis_kelamin }}</h1>
+        @endcan
+        {{-- Profile Gugus Kendali --}}
+        @can('gugus_kendali')
+            <div class="photoprofile">
+                <img src="logo.png" class="imgprofile"></img>
+            </div>
+            <h1>Nama : {{ Auth::user()->dosen->nama }}</h1>
+            <h1>Nip : {{ Auth::user()->dosen->nip }}</h1>
+            <h1>Jenis Kelamin : {{ Auth::user()->dosen->jenis_kelamin }}</h1>
+        @endcan
+
+
     </div>
 @endsection
 @section('script')

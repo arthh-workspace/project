@@ -47,21 +47,29 @@
                 </li>
                 {{-- Admin --}}
                 @can('admin')
-                    <li class="nav-item">
-                        <a href="{{ route('user') }}" class="nav-link" id="user">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                User Management
+                    <li class="nav-item has-treeview" id="masteruser">
+                        <a href="#" class="nav-link" id="user">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p> User Management
+                                <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Menu Admin 2
-                            </p>
-                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('user.dosen') }}" class="nav-link" id="dosen">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p>Dosen </p>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('user.mahasiswa') }}" class="nav-link" id="mahasiswa">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p>Mahasiswa </p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 @endcan
                 {{-- Gugus Kendali --}}
@@ -140,61 +148,7 @@
                         </a>
                     </li>
                 @endcan
-
-
-                {{-- <li class="nav-item has-treeview" id="masterstaf">
-                    <a href="#" class="nav-link" id="staf">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p> Staf
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link" id="dosen">
-                                <i class="nav-icon fas fa-user"></i>
-                                <p>Dosen </p>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link" id="teknisi">
-                                <i class="nav-icon fas fa-user"></i>
-                                <p>Teknisi </p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Starter Pages
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Active Page</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Inactive Page</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li> --}}
-            </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
+                <!-- /.sidebar -->
 </aside>
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">

@@ -40,6 +40,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
+    <script src="{{ asset('dist/js/tambahan.js')}}"></script>
 
 </body>
 
