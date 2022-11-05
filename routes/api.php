@@ -4,7 +4,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginApiController;
 
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,4 +21,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/login', [LoginApiController::class, 'index']);
 Route::get('/logout', [LoginApiController::class, 'logout']);
-

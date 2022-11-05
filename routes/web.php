@@ -1,8 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\UserDController;
 use App\Http\Controllers\Admin\UserMController;
 
@@ -17,14 +17,10 @@ use App\Http\Controllers\Admin\UserMController;
 |
 */
 
-//Login
-Route::get('/', [LoginController::class, 'index'])->middleware('guest');
-Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
-Route::post('/login', [LoginController::class, 'store'])->name('login');
-Route::get('/logout', [LoginController::class, 'create'])->name('logout');
 
-// Dashboard
-Route::get('/home', [HomeController::class, 'index'])->name('dashboard');
+Auth::routes();
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Admin
 ////////// User Dosen /////////
@@ -42,9 +38,3 @@ Route::get('/user_mahasiswa/edit/{id}', [UserMController::class, 'edit'])->name(
 Route::patch('/user_mahasiswa/update/{id}', [UserMController::class, 'update'])->name('user.mahasiswa.update');
 Route::delete('/user_mahasiswa/destroy/{id}', [UserMController::class, 'destroy'])->name('user.mahasiswa.destroy');
 
-
-
-
-// dosen
-
-// Mahasiswa

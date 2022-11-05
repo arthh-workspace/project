@@ -55,12 +55,6 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                 </div>
-                                @if (Session::has('status'))
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ Session::get('message') }}
-                                    </div>
-                                @endif
-
                                 <form method="post" action="{{ route('login') }}">
                                     @csrf
                                     <div class="form-group">
@@ -69,9 +63,9 @@
                                             name="username" value="{{ old('username') }}" required autocomplete="username"
                                             autofocus placeholder="Username">
 
-                                        @error('email')
+                                        @error('username')
                                             <span class="invalid-feedback" role="alert">
-                                                <strong></strong>
+                                                <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
@@ -83,7 +77,7 @@
 
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
-                                                <strong></strong>
+                                                <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                             <div class="input-group-append">
@@ -99,14 +93,14 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
-                                            <input class="custom-control-input" type="checkbox" name="remember" id="customCheck" {{ old('remember') ? 'checked' : '' }}>
+                                            {{-- <input class="custom-control-input" type="checkbox" name="remember" id="customCheck" {{ old('remember') ? 'checked' : '' }}>
 
                                         <label class="custom-control-label" for="customCheck">Remember
-                                            Me</label>
+                                            Me</label> --}}
                                         </div>
-
                                     </div>
                                     <button class="btn btn-primary btn-user btn-block" type="submit">
                                         Login

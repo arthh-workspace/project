@@ -128,8 +128,12 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('logout') }}" role="button">
-                <i class="fas fa-sign-out-alt"> Logout</i>
+            <a class="nav-link" role="button" href="{{ route('logout') }}"  onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+                    <i class="fas fa-sign-out-alt"> Logout</i>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
             </a>
         </li>
     </ul>
