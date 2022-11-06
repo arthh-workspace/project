@@ -30,7 +30,7 @@
             <div class="photoprofile">
                 <img src="logo.png" class="imgprofile"></img>
             </div>
-            <h1>Nama : {{ Auth::user()->dosen > nama }}</h1>
+            <h1>Nama : {{ Auth::user()->dosen->nama }}</h1>
             <h1>Nip : {{ Auth::user()->dosen->nip }}</h1>
             <h1>Jenis Kelamin : {{ Auth::user()->dosen->jenis_kelamin }}</h1>
         @endcan

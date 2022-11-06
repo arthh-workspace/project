@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Mahasiswa;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Str;
 
 class UserMController extends Controller
 {
@@ -44,19 +45,42 @@ class UserMController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create([
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+            'role' => 'required',
+            'nim' => 'required',
+            'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+		]);
+
+		// menyimpan data file yang diupload ke variabel $file
+		$gambar = $request->file('foto');
+
+        $filenamewithextension  = $request->file('foto')->getClientOriginalName();
+        $filename               = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+        $date                   = date('s' . 'i' . 'H' . 'd' . 'm' . 'Y');
+        $new_gambar             = Str::slug($filename, '-', $date) . '.' . $gambar->getClientOriginalExtension();
+        $destinationPath        = 'public/images/mahasiswa';
+        $gambar->storeAs($destinationPath, $new_gambar);
+
+		$user = User::create([
+            'name' => $request->name,
             'email' => $request->email,
             'username' => $request->username,
             'password' => Hash::make($request->password),
             'role' => $request->role,
-        ]);
-        $mahasiswa = Mahasiswa::create([
-            'nama' => $request->nama,
-            'nim' => $request->nim,
-            'foto' => $request->foto,
+		]);
+
+        Mahasiswa::create([
+            'foto' => 'images/mahasiswa/' . $new_gambar,
+            'nim'  => $request->nim,
+            'nama' => $user->name,
             'user_id' => $user->id
         ]);
-        return redirect('/user_mahasiswa')->with('success', 'Berhasil menambahkan data User');
+
+		return redirect('/user_mahasiswa')->with('success', 'Berhasil menambahkan data Mahasiswa');
     }
 
     /**
