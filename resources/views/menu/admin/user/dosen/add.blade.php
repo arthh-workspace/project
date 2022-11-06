@@ -89,7 +89,6 @@
                                         <option value="gugus_kendali">Gugus Kendali</option>
                                         <option value="dosen_koor">Dosen Koor</option>
                                         <option value="dosen_pengampu">Dosen Pengampu</option>
-                                        <option value="mahasiswa">Mahasiswa</option>
                                     </select>
                                     <div class="text-danger">
                                         @error('role')
@@ -113,10 +112,6 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Default file input example</label>
-                                    <input class="form-control" type="file" id="formFile">
-                                  </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer justify-content-between">

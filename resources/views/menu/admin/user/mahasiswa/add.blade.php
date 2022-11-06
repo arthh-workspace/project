@@ -85,9 +85,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="foto">Foto </label>
-                                    <input type="text" name="foto" value="{{ old('foto') }}"
-                                        class="form-control @error('foto') is-invalid @enderror" placeholder="Foto">
+                                    <label for="foto">Pilih File</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file"
+                                                class="custom-file-input @error('foto') is-invalid @enderror"
+                                                name="foto">
+                                            <label class="custom-file-label" for="foto">Pilih Foto</label>
+                                        </div>
+                                    </div>
                                     <div class="text-danger">
                                         @error('foto')
                                             Foto tidak boleh kosong.

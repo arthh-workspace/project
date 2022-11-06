@@ -78,15 +78,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
-                                Menu Gugus 1
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Menu Gugus 2
+                                Cetak Laporan
                             </p>
                         </a>
                     </li>
@@ -97,15 +89,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
-                                Menu Dosen koor 1
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Menu Dosen koor 2
+                                RPS
                             </p>
                         </a>
                     </li>
@@ -116,15 +100,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
-                                Menu Dosen pengampu 1
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Menu Dosen pengampu 2
+                                Kontrol Kuesioner
                             </p>
                         </a>
                     </li>
@@ -135,16 +111,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
-                                Menu Mahasiswa 1
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Menu Mahasiswa 2
-                            </p>
+                                Kuesioner
                         </a>
                     </li>
                 @endcan

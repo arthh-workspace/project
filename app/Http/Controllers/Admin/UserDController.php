@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class UserDController extends Controller
 {
@@ -142,9 +143,11 @@ class UserDController extends Controller
      */
     public function destroy(User $id)
     {
+        $filename = $id->dosen()->foto;
+        Storage::disk('public')->delete($filename);
         $id->delete();
 
-        return redirect()->route('user.dosen')->with('error', 'Data pengumuman berhasil dihapus');
+        return redirect()->route('user.dosen')->with('error', 'Data dosen berhasil dihapus');
     }
     public function search(Request $request)
     {
