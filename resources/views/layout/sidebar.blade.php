@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
         <img src="{{ asset('assets/HMTI.png') }}" class="brand-image img-circle elevation-3"
-            style="opacity: .8"> 
+            style="opacity: .8">
         <span class="brand-text font-weight-light">informatika {{ Auth::user()->name }}</span>
     </a>
 
@@ -45,7 +45,7 @@
                         </p>
                     </a>
                 </li>
-                
+
                 {{-- Admin --}}
                 @can('admin')
                     <li class="nav-item has-treeview" id="masteruser">
