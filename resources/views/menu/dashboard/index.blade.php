@@ -20,7 +20,7 @@
         {{-- Profile Dosen --}}
         @can('dosen_pengampu')
             <div class="photoprofile">
-                <img src="{{ Storage::url(Auth::user()->dosen->foto) }}" class="imgprofile"></img>
+                <img src="{{ Storage::url(Auth::user()->foto) }}" class="imgprofile"></img>
             </div>
             <h1>Nama : {{ Auth::user()->dosen->nama }}</h1>
             <h1>Nip : {{ Auth::user()->dosen->nip }}</h1>

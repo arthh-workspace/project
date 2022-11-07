@@ -9,6 +9,7 @@ use App\Models\Mahasiswa;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class UserMController extends Controller
 {
@@ -53,10 +54,10 @@ class UserMController extends Controller
             'role' => 'required',
             'nim' => 'required',
             'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
-		]);
+        ]);
 
-		// menyimpan data file yang diupload ke variabel $file
-		$gambar = $request->file('foto');
+        // menyimpan data file yang diupload ke variabel $file
+        $gambar = $request->file('foto');
 
         $filenamewithextension  = $request->file('foto')->getClientOriginalName();
         $filename               = pathinfo($filenamewithextension, PATHINFO_FILENAME);
@@ -65,22 +66,22 @@ class UserMController extends Controller
         $destinationPath        = 'public/images/mahasiswa';
         $gambar->storeAs($destinationPath, $new_gambar);
 
-		$user = User::create([
+        $user = User::create([
+            'foto' => 'images/mahasiswa/' . $new_gambar,
             'name' => $request->name,
             'email' => $request->email,
             'username' => $request->username,
             'password' => Hash::make($request->password),
             'role' => $request->role,
-		]);
+        ]);
 
         Mahasiswa::create([
-            'foto' => 'images/mahasiswa/' . $new_gambar,
             'nim'  => $request->nim,
             'nama' => $user->name,
             'user_id' => $user->id
         ]);
 
-		return redirect('/user_mahasiswa')->with('success', 'Berhasil menambahkan data Mahasiswa');
+        return redirect('/user_mahasiswa')->with('success', 'Berhasil menambahkan data Mahasiswa');
     }
 
     /**
@@ -136,9 +137,11 @@ class UserMController extends Controller
      */
     public function destroy(User $id)
     {
+        $filename = $id->foto;
+        Storage::disk('public')->delete($filename);
         $id->delete();
 
-        return redirect()->route('user.mahasiswa')->with('error', 'Data pengumuman berhasil dihapus');
+        return redirect()->route('user.mahasiswa')->with('error', 'Data mahasiswa berhasil dihapus');
     }
     public function search(Request $request)
     {

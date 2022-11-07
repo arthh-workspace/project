@@ -20,7 +20,6 @@ class mahasiswaseeder extends Seeder
                 'id'                    => 1,
                 'user_id'               => 3,
                 'nama'                  => 'Rizal Eka Budi Pratama',
-                'foto'                  => 'aku',
                 'nim'                   => '362055401186',
                 'jenis_kelamin'         => 'Laki-Laki',
                 'created_at'            => '2021-05-17 04:21:52',

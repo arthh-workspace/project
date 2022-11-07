@@ -18,7 +18,6 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('nama');
             $table->string('nim');
-            $table->string('foto');
             $table->enum('jenis_kelamin', ['Laki-Laki','Perempuan']);
             $table->timestamps();
 

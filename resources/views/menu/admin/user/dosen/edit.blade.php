@@ -29,9 +29,10 @@
                                         @enderror
                                     </div>
                                 </div>
+                                @foreach ($dosen as $d )
                                 <div class="form-group">
                                     <label for="nama">Nama </label>
-                                    <input type="text" name="nama" value="{{ $dosen->nama }}"
+                                    <input type="text" name="nama" value="{{ $d->nama }}"
                                         class="form-control @error('nama') is-invalid @enderror" placeholder="Nama">
                                     <div class="text-danger">
                                         @error('nama')
@@ -39,6 +40,8 @@
                                         @enderror
                                     </div>
                                 </div>
+                                @endforeach
+
                                 <div class="form-group">
                                     <label for="username">Username </label>
                                     <input type="text" name="username" value="{{ $user->username }}"

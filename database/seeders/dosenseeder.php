@@ -20,7 +20,6 @@ class dosenseeder extends Seeder
                 'id'                    => 1,
                 'user_id'               => 2,
                 'nama'                  => 'Dilan Setiawan',
-                'foto'                  => 'aku',
                 'nip'                   => '1234567889',
                 'jenis_kelamin'         => 'Laki-Laki',
                 'created_at'            => '2021-05-17 04:21:52',

@@ -54,10 +54,10 @@ class UserDController extends Controller
             'role' => 'required',
             'nip' => 'required',
             'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
-		]);
+        ]);
 
-		// menyimpan data file yang diupload ke variabel $file
-		$gambar = $request->file('foto');
+        // menyimpan data file yang diupload ke variabel $file
+        $gambar = $request->file('foto');
 
         $filenamewithextension  = $request->file('foto')->getClientOriginalName();
         $filename               = pathinfo($filenamewithextension, PATHINFO_FILENAME);
@@ -66,22 +66,22 @@ class UserDController extends Controller
         $destinationPath        = 'public/images/dosen';
         $gambar->storeAs($destinationPath, $new_gambar);
 
-		$user = User::create([
+        $user = User::create([
+            'foto' => 'images/dosen/' . $new_gambar,
             'name' => $request->name,
             'email' => $request->email,
             'username' => $request->username,
             'password' => Hash::make($request->password),
             'role' => $request->role,
-		]);
+        ]);
 
         Dosen::create([
-            'foto' => 'images/dosen/' . $new_gambar,
             'nip'  => $request->nip,
             'nama' => $user->name,
             'user_id' => $user->id
         ]);
 
-		return redirect('/user_dosen')->with('success', 'Berhasil menambahkan data Dosen');
+        return redirect('/user_dosen')->with('success', 'Berhasil menambahkan data Dosen');
     }
 
     /**
@@ -101,11 +101,10 @@ class UserDController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        $id = Crypt::decrypt($id);
-        $user = User::findorfail($id);
-        return view('menu.admin.user.dosen.edit', compact('user'));
+        $dosen = Dosen::all();
+        return view('menu.admin.user.dosen.edit', compact('user','dosen'));
     }
 
     /**
@@ -115,24 +114,49 @@ class UserDController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $user = User::where('id', $request->id)
-            ->update([
+        $this->validate($request, [
+            'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'name' => 'required',
+            'email' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+            'role' => 'required',
+            'nip' => 'required',
+        ]);
+
+        $user = User::findorfail($id);
+
+        if ($request->gambar) {
+            $name_file = $request->gambar;
+            $new_file = date('s' . 'i' . 'H' . 'd' . 'm' . 'Y') . "_" . $name_file->getClientOriginalName();
+            $data = [
+                'name' => $request->name,
                 'email' => $request->email,
                 'username' => $request->username,
-                'password' => Hash::make($request->password),
+                'password' => $request->password,
                 'role' => $request->role,
-            ]);
-        $dosen = Dosen::where('user_id', $request->id)
-            ->update([
-                'nama' => $request->nama,
-                'nip' => $request->nip,
-                'foto' => $request->foto,
+                'foto' => 'images/dosen/' . $new_file
+            ];
+            $name_file->storeAs('public/images/dosen', $new_file);
+            $user->dosen()->sync([
+                'nip'  => $request->nip,
+                'nama' => $user->name,
                 'user_id' => $user->id
             ]);
+            $user->update($data);
+        } else {
+            $data = [
+                'judul_berita' => $request->judul_berita,
+                'isi' => $request->isi,
+                'user_id' => $request->user_id
+            ];
 
-        return redirect()->route('user.dosen');
+            $user->update($data);
+        }
+
+        return redirect()->route('berita.index')->with('success', 'Data berita berhasil diperbarui!');
     }
 
     /**
@@ -143,7 +167,7 @@ class UserDController extends Controller
      */
     public function destroy(User $id)
     {
-        $filename = $id->dosen()->foto;
+        $filename = $id->foto;
         Storage::disk('public')->delete($filename);
         $id->delete();
 
