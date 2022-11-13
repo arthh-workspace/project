@@ -68,7 +68,10 @@
                                         <option value="gugus_kendali">Gugus Kendali</option>
                                         <option value="dosen_koor">Dosen Koor</option>
                                         <option value="dosen_pengampu">Dosen Pengampu</option>
-                                        <option value="mahasiswa">Mahasiswa</option>
+                                        <option value="super_dosen1">Super Dosen 1</option>
+                                        <option value="super_dosen2">Super Dosen 2</option>
+                                        <option value="super_dosen3">Super Dosen 3</option>
+
                                     </select>
                                     <div class="text-danger">
                                         @error('role')

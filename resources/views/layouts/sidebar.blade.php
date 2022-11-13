@@ -36,73 +36,10 @@
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                {{-- <li class="nav-item">
-                    <a href="{{ route('admin') }}" class="nav-link" id="Dashboard">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Dashboard
-                        </p>
-                    </a>
-                </li> --}}
-
-                {{-- Admin --}}
-                @can('admin')
+               {{-- Super Dosen 1 --}}
+               @can('super_dosen1')
                     <li class="nav-item">
-                        <a href="{{ route('admin') }}" class="nav-link" id="Dashboard">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item has-treeview" id="masteruser">
-                        <a href="#" class="nav-link" id="user">
-                            <i class="nav-icon fas fa-users"></i>
-                            <p> User Management
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('user.dosen') }}" class="nav-link" id="dosen">
-                                    <i class="nav-icon fas fa-user"></i>
-                                    <p>Dosen </p>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('user.mahasiswa') }}" class="nav-link" id="mahasiswa">
-                                    <i class="nav-icon fas fa-user"></i>
-                                    <p>Mahasiswa </p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @endcan
-                {{-- Gugus Kendali --}}
-                @can('gugus_kendali')
-                    <li class="nav-item">
-                        <a href="{{ route('gugus_kendali') }}" class="nav-link" id="Dashboard">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Cetak Laporan
-                            </p>
-                        </a>
-                    </li>
-                @endcan
-                {{-- Dosen Koor --}}
-                @can('dosen_koor')
-                    <li class="nav-item">
-                        <a href="{{ route('dosen_koor') }}" class="nav-link" id="Dashboard">
+                        <a href="{{ route('dosenk') }}" class="nav-link" id="Dashboard">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Dashboard
@@ -117,63 +54,6 @@
                             </p>
                         </a>
                     </li>
-                @endcan
-                {{-- Dosen Pengampu --}}
-                @can('dosen_pengampu')
-                    <li class="nav-item">
-                        <a href="{{ route('dosen_pengampu') }}" class="nav-link" id="Dashboard">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Kontrol Kuesioner
-                            </p>
-                        </a>
-                    </li>
-                @endcan
-                {{-- Mahasiswa --}}
-                @can('mahasiswa')
-                    <li class="nav-item">
-                        <a href="{{ route('mahasiswa') }}" class="nav-link" id="Dashboard">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Kuesioner
-                        </a>
-                    </li>
-                @endcan
-
-                {{-- Super Dosen 1 --}}
-                @can('super_dosen1')
-                    <li class="nav-item">
-                        <a href="{{ route('dosenp1') }}" class="nav-link" id="Dashboard">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Kontrol Kuesioner
-                            </p>
-                        </a>
-                    </li>
                     <li class="nav-item has-treeview" id="masteruser">
                         <a href="#" class="nav-link" id="user">
                             <i class="nav-icon fas fa-users"></i>
@@ -183,7 +63,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('dosenp1') }}" class="nav-link" id="dosen">
+                                <a href="{{ route('dosenp') }}" class="nav-link" id="dosen">
                                     <i class="nav-icon fas fa-user"></i>
                                     <p>Dosen Pengampu </p>
                                 </a>
@@ -191,7 +71,7 @@
                         </ul>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('dosenk1') }}" class="nav-link" id="mahasiswa">
+                                <a href="{{ route('dosenk') }}" class="nav-link" id="mahasiswa">
                                     <i class="nav-icon fas fa-user"></i>
                                     <p>Dosen Koor </p>
                                 </a>
@@ -199,7 +79,6 @@
                         </ul>
                     </li>
                 @endcan
-
                 {{-- Super Dosen 2 --}}
                 @can('super_dosen2')
                     <li class="nav-item">
@@ -214,7 +93,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
-                                Kontrol Kuesioner
+                                Cetak Laporan
                             </p>
                         </a>
                     </li>
@@ -257,7 +136,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
-                                Kontrol Kuesioner
+                                RPS
                             </p>
                         </a>
                     </li>

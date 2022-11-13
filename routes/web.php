@@ -7,8 +7,11 @@ use App\Http\Controllers\Admin\UserDController;
 use App\Http\Controllers\Admin\UserMController;
 use App\Http\Controllers\Dosen_koor\DosenKController;
 use App\Http\Controllers\Gugus_kendali\GugusController;
-use App\Http\Controllers\Dosen_pengampu\DosenPController;
 use App\Http\Controllers\Mahasiswa\MahasiswaController;
+use App\Http\Controllers\Super_dosen1\SuperD1Controller;
+use App\Http\Controllers\Super_dosen2\SuperD2Controller;
+use App\Http\Controllers\Super_dosen3\SuperD3Controller;
+use App\Http\Controllers\Dosen_pengampu\DosenPController;
 
 
 /*
@@ -61,11 +64,30 @@ Route::group(['middleware' => ['auth', 'checkRole:dosen_pengampu']], function ()
     ////////// Dashboard /////////
     Route::get('/dosen_pengampu', [DosenPController::class, 'index'])->name('dosen_pengampu');
 });
+
+
 // Super Dosen 1
 Route::group(['middleware' => ['auth', 'checkRole:super_dosen1']], function () {
     ////////// Dashboard /////////
-    Route::get('/super_dosen1', [Super1Controller::class, 'index'])->name('super_dosen1');
+    Route::get('/dosenp1', [SuperD1Controller::class, 'dosenp'])->name('dosenp1');
+    Route::get('/dosenk1', [SuperD1Controller::class, 'dosenk'])->name('dosenk1');
 });
+// Super Dosen 2
+Route::group(['middleware' => ['auth', 'checkRole:super_dosen2']], function () {
+    ////////// Dashboard /////////
+    Route::get('/dosenp2', [SuperD2Controller::class, 'dosenp'])->name('dosenp2');
+    Route::get('/gugusk2', [SuperD2Controller::class, 'gugusk'])->name('gugusk2');
+});
+// Super Dosen 3
+Route::group(['middleware' => ['auth', 'checkRole:super_dosen3']], function () {
+    ////////// Dashboard /////////
+    Route::get('/dosenp3', [SuperD3Controller::class, 'dosenp'])->name('dosenp3');
+    Route::get('/dosenk3', [SuperD3Controller::class, 'dosenk'])->name('dosenk3');
+    Route::get('/gugusk3', [SuperD3Controller::class, 'gugusk'])->name('gugusk3');
+});
+
+
+
 // Mahasiswa
 Route::group(['middleware' => ['auth', 'checkRole:mahasiswa']], function () {
     ////////// Dashboard /////////
