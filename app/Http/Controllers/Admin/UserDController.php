@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Storage;
 
 class UserDController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkRole:admin']);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -101,10 +97,11 @@ class UserDController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        $dosen = Dosen::all();
-        return view('menu.admin.user.dosen.edit', compact('user','dosen'));
+        $id = Crypt::decrypt($id);
+        $user = User::findorfail($id);
+        return view('menu.admin.user.dosen.edit', compact('user'));
     }
 
     /**
@@ -114,8 +111,19 @@ class UserDController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,User $id)
     {
+        // $user = User::where('id', $request->id)
+        //     ->update([
+        //         'email' => $request->email,
+        //         'name' => $request->name,
+        //         'username' => $request->username,
+        //         'password' => Hash::make($request->password),
+        //         'role' => $request->role,
+        //     ]);
+
+        // return redirect()->route('user.dosen');
+
         $this->validate($request, [
             'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required',
@@ -123,40 +131,30 @@ class UserDController extends Controller
             'username' => 'required',
             'password' => 'required',
             'role' => 'required',
-            'nip' => 'required',
         ]);
 
-        $user = User::findorfail($id);
+        $gambar = $request->file('foto');
 
-        if ($request->gambar) {
-            $name_file = $request->gambar;
-            $new_file = date('s' . 'i' . 'H' . 'd' . 'm' . 'Y') . "_" . $name_file->getClientOriginalName();
+        if (!empty($gambar)) {
+            $data = $request->all();
+            $gambar = $request->file('foto');
+            $new_foto = date('s' . 'i' . 'H' . 'd' . 'm' . 'Y') . '_' . $gambar->GetClientOriginalName();
             $data = [
                 'name' => $request->name,
                 'email' => $request->email,
                 'username' => $request->username,
-                'password' => $request->password,
+                'password' => Hash::make($request->password),
                 'role' => $request->role,
-                'foto' => 'images/dosen/' . $new_file
+                'foto' => 'images/dosen/' . $new_foto
             ];
-            $name_file->storeAs('public/images/dosen', $new_file);
-            $user->dosen()->sync([
-                'nip'  => $request->nip,
-                'nama' => $user->name,
-                'user_id' => $user->id
-            ]);
-            $user->update($data);
+            $gambar->storeAs('public/images/dosen', $new_foto);
+            $id->update($data);
         } else {
-            $data = [
-                'judul_berita' => $request->judul_berita,
-                'isi' => $request->isi,
-                'user_id' => $request->user_id
-            ];
-
-            $user->update($data);
+            $data = $request->all();
+            $id->update($data);
         }
 
-        return redirect()->route('berita.index')->with('success', 'Data berita berhasil diperbarui!');
+        return redirect()->route('user.dosen')->with('success', 'Data Dosen berhasil diubah');
     }
 
     /**

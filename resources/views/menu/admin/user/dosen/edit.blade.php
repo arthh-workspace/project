@@ -29,19 +29,6 @@
                                         @enderror
                                     </div>
                                 </div>
-                                @foreach ($dosen as $d )
-                                <div class="form-group">
-                                    <label for="nama">Nama </label>
-                                    <input type="text" name="nama" value="{{ $d->nama }}"
-                                        class="form-control @error('nama') is-invalid @enderror" placeholder="Nama">
-                                    <div class="text-danger">
-                                        @error('nama')
-                                            Nama tidak boleh kosong.
-                                        @enderror
-                                    </div>
-                                </div>
-                                @endforeach
-
                                 <div class="form-group">
                                     <label for="username">Username </label>
                                     <input type="text" name="username" value="{{ $user->username }}"
@@ -49,6 +36,16 @@
                                     <div class="text-danger">
                                         @error('username')
                                             Username tidak boleh kosong.
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Nama </label>
+                                    <input type="text" name="name" value="{{ $user->name }}"
+                                        class="form-control @error('name') is-invalid @enderror" placeholder="Nama">
+                                    <div class="text-danger">
+                                        @error('name')
+                                            Nama tidak boleh kosong.
                                         @enderror
                                     </div>
                                 </div>
@@ -76,6 +73,22 @@
                                     <div class="text-danger">
                                         @error('role')
                                             Role tidak boleh kosong.
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="foto">Pilih File</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file"
+                                                class="custom-file-input @error('foto') is-invalid @enderror"
+                                                name="foto">
+                                            <label class="custom-file-label" for="foto">Pilih File</label>
+                                        </div>
+                                    </div>
+                                    <div class="text-danger">
+                                        @error('foto')
+                                            Foto tidak boleh kosong.
                                         @enderror
                                     </div>
                                 </div>

@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Storage;
 
 class UserMController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'checkRole:admin']);
-    }
     /**
      * Display a listing of the resource.
      *

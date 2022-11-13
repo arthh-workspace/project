@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('dosens', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('nama');
             $table->string('nip');
+            $table->string('nama');
             $table->enum('jenis_kelamin', ['Laki-Laki','Perempuan']);
             $table->timestamps();
 

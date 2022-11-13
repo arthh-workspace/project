@@ -14,37 +14,40 @@
                             <div class="row">
                                 <div class="column" style="float: left; padding: 5px;">
                                     <img width="100"
-                                        src="{{asset('assets/Politeknik-Negeri-Banyuwangi-removebg-preview.png')}}"
+                                        src="{{ asset('assets/Politeknik-Negeri-Banyuwangi-removebg-preview.png') }}"
                                         style="margin-left: 10px">
                                 </div>
                                 <div class="column">
-                                    <img width="110" src="{{asset('assets/HMTI.png')}}"
-                                        style="margin-top: 10px">
+                                    <img width="110" src="{{ asset('assets/HMTI.png') }}" style="margin-top: 10px">
                                 </div>
                             </div>
                             <div class="card-body">
                                 <p style="margin-top: 20px">Selamat datang</p>
-                                <p style="font-size: 20px; margin-bottom:200px"><b> Sistem Informasi Penilaian<br> Kesesuaian Pelaksanaan
+                                <p style="font-size: 20px; margin-bottom:200px"><b> Sistem Informasi Penilaian<br>
+                                        Kesesuaian Pelaksanaan
                                         Perkuliahan
                                     </b></p>
                             </div>
                             <div class="card-body">
                                 <div class="column" style="float: left; padding: 5px;">
-                                <a href="https://www.youtube.com/channel/UCq769ou-Gy0z5b8Nzgv4kfg">
-                                    <img width="13" src="{{asset('assets/youtube.png')}}" style="margin-left: 10px">
-                                </a>
+                                    <a href="https://www.youtube.com/channel/UCq769ou-Gy0z5b8Nzgv4kfg">
+                                        <img width="13" src="{{ asset('assets/youtube.png') }}"
+                                            style="margin-left: 10px">
+                                    </a>
                                     <b style="font-size: 12px">TI POLIWANGI TV</b>
                                 </div>
                                 <div class="column" style="float: left; padding: 5px;">
-                                <a href="https://www.instagram.com/tipoliwangi/">
-                                    <img width="13" src="{{asset('assets/instagram.png')}}" style="margin-left: 10px">
-                                </a>
+                                    <a href="https://www.instagram.com/tipoliwangi/">
+                                        <img width="13" src="{{ asset('assets/instagram.png') }}"
+                                            style="margin-left: 10px">
+                                    </a>
                                     <b style="font-size: 12px">@tipoliwangi</b>
                                 </div>
                                 <div class="column" style="float: left; padding: 5px;">
-                                <a href="https://ti.poliwangi.ac.id/">
-                                    <img width="13" src="{{asset('assets/browser.png')}}" style="margin-left: 10px">
-                                </a>
+                                    <a href="https://ti.poliwangi.ac.id/">
+                                        <img width="13" src="{{ asset('assets/browser.png') }}"
+                                            style="margin-left: 10px">
+                                    </a>
                                     <b style="font-size: 12px">ti.poliwangi.ac.id</b>
                                 </div>
                             </div>
@@ -55,6 +58,12 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                 </div>
+                                @if (Session::has('status'))
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ Session::get('message') }}
+                                    </div>
+                                @endif
+
                                 <form method="post" action="{{ route('login') }}">
                                     @csrf
                                     <div class="form-group">
@@ -63,23 +72,24 @@
                                             name="username" value="{{ old('username') }}" required autocomplete="username"
                                             autofocus placeholder="Username">
 
-                                        @error('username')
+                                        @error('email')
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
+                                                <strong></strong>
                                             </span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <div class="input-group">
                                             <input id="pass" type="password"
-                                            class="form-control form-control-user @error('password') is-invalid @enderror"
-                                            name="password" required autocomplete="current-password" placeholder="Password">
+                                                class="form-control form-control-user @error('password') is-invalid @enderror"
+                                                name="password" required autocomplete="current-password"
+                                                placeholder="Password">
 
-                                        @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong></strong>
+                                                </span>
+                                            @enderror
                                             <div class="input-group-append">
                                                 <span id="mybutton" onclick="change()" class="input-group-text">
                                                     <svg width="1em" height="1em" viewBox="0 0 16 16"
@@ -93,14 +103,13 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
                                             {{-- <input class="custom-control-input" type="checkbox" name="remember" id="customCheck" {{ old('remember') ? 'checked' : '' }}>
-
                                         <label class="custom-control-label" for="customCheck">Remember
                                             Me</label> --}}
                                         </div>
+
                                     </div>
                                     <button class="btn btn-primary btn-user btn-block" type="submit">
                                         Login
@@ -125,8 +134,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
+
+    </div>
 
     </div>
 @endsection

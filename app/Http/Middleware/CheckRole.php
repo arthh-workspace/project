@@ -30,6 +30,6 @@ class CheckRole
             }
         }
 
-        return redirect('/');
+        return back();
     }
 }
