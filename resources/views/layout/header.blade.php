@@ -1,4 +1,4 @@
-<nav class="main-header navbar navbar-expand navbar-blue navbar-light">
+<nav class="main-header navbar navbar-expand navbar-blue navbar-light elevation-3" style="margin-left: 278px; margin-top: 18px; margin-bottom: 18px; margin-right: 15px; border-radius: 18px; height: 90px">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
