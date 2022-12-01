@@ -7,13 +7,16 @@
 @endsection
 @section('content')
     <p align="center">Profil Saya</p>
-    <div id="wrapper">
-            <div class="photoprofile">
-                <img src="logo.png" class="imgprofile"></img>
+    <div class="card elevation-3" style="border-radius: 10px; background-color: white; position: relative;">
+            <div class="photoprofile row">
+                <img src="{{ asset('dist/img/avatar2.png') }}" class="imgprofile elevation-3" style="margin: 20px; margin-left: 20px"></img>
+                <div class="card-body">
+                <h1 class="row" style="font-family:'Courier', Courier, monospace; align: right; margin-top: 15px; margin-left: 10px">Nama : {{ Auth::user()->mahasiswa->nama }}</h1>
+                <h1 style="font-family: 'Courier', Courier, monospace; align: right; margin-left: 10px">Nim : {{ Auth::user()->mahasiswa->nim }}</h1>
+                <h1 style="font-family: 'Courier', Courier, monospace; align: right; margin-left: 10px">Jenis Kelamin : {{ Auth::user()->mahasiswa->jenis_kelamin }}</h1>
+                </div>
             </div>
-            <h1>Nama : {{ Auth::user()->mahasiswa->nama }}</h1>
-            <h1>Nim : {{ Auth::user()->mahasiswa->nim }}</h1>
-            <h1>Jenis Kelamin : {{ Auth::user()->mahasiswa->jenis_kelamin }}</h1>
+            
     </div>
 @endsection
 @section('script')
