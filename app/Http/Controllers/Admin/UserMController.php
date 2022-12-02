@@ -46,8 +46,8 @@ class UserMController extends Controller
             'name' => 'required',
             'email' => 'required',
             'username' => 'required',
-            'password' => 'required',
             'role' => 'required',
+            'jenis_kelamin'=>'required',
             'nim' => 'required',
             'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
         ]);
@@ -67,16 +67,16 @@ class UserMController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'username' => $request->username,
-            'password' => Hash::make($request->password),
+            'password' => Hash::make($request->username),
             'role' => $request->role,
         ]);
 
         Mahasiswa::create([
-            'nim'  => $request->nim,
-            'nama' => $user->name,
-            'user_id' => $user->id
+            'nim'           => $request->nim,
+            'nama'          => $user->name,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'user_id'       => $user->id
         ]);
-
         return redirect('/user_mahasiswa')->with('success', 'Berhasil menambahkan data Mahasiswa');
     }
 

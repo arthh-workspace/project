@@ -6,13 +6,13 @@
     <li class="breadcrumb-item active">Dashboard</li>
 @endsection
 @section('content')
-    <p align="center">Profil Saya</p>
+    {{-- <p align="center">Profil Saya</p>
     <div id="wrapper">
             <div class="photoprofile">
                 <img src="logo.png" class="imgprofile"></img>
             </div>
             <h1>Nama : {{ Auth::user()->name }}</h1>
-    </div>
+    </div> --}}
 @endsection
 @section('script')
     <script type="text/javascript">

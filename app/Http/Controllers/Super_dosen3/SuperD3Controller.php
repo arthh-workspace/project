@@ -8,10 +8,6 @@ use App\Http\Controllers\Controller;
 
 class SuperD3Controller extends Controller
 {
-    public function dosenp()
-    {
-        return view('menu.super_dosen3.dashboard.dosenp');
-    }
     public function dosenk()
     {
         return view('menu.super_dosen3.dashboard.dosenk');

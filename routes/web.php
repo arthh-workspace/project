@@ -11,6 +11,7 @@ use App\Http\Controllers\Mahasiswa\MahasiswaController;
 use App\Http\Controllers\Super_dosen1\SuperD1Controller;
 use App\Http\Controllers\Super_dosen2\SuperD2Controller;
 use App\Http\Controllers\Super_dosen3\SuperD3Controller;
+use App\Http\Controllers\Super_dosen4\SuperD4Controller;
 use App\Http\Controllers\Dosen_pengampu\DosenPController;
 
 
@@ -38,6 +39,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::get('/user_dosen', [UserDController::class, 'index'])->name('user.dosen');
     Route::get('/user_dosen/create', [UserDController::class, 'create'])->name('user.dosen.add');
     Route::post('/user_dosen/store', [UserDController::class, 'store'])->name('user.dosen.store');
+    Route::get('/user_dosen/view/{id}', [UserDController::class, 'show'])->name('user.dosen.view');
     Route::get('/user_dosen/edit/{id}', [UserDController::class, 'edit'])->name('user.dosen.edit');
     Route::patch('/user_dosen/update/{id}', [UserDController::class, 'update'])->name('user.dosen.update');
     Route::delete('/user_dosen/destroy/{id}', [UserDController::class, 'destroy'])->name('user.dosen.destroy');
@@ -81,9 +83,15 @@ Route::group(['middleware' => ['auth', 'checkRole:super_dosen2']], function () {
 // Super Dosen 3
 Route::group(['middleware' => ['auth', 'checkRole:super_dosen3']], function () {
     ////////// Dashboard /////////
-    Route::get('/dosenp3', [SuperD3Controller::class, 'dosenp'])->name('dosenp3');
     Route::get('/dosenk3', [SuperD3Controller::class, 'dosenk'])->name('dosenk3');
     Route::get('/gugusk3', [SuperD3Controller::class, 'gugusk'])->name('gugusk3');
+});
+// Super Dosen 4
+Route::group(['middleware' => ['auth', 'checkRole:super_dosen4']], function () {
+    ////////// Dashboard /////////
+    Route::get('/dosenp4', [SuperD4Controller::class, 'dosenp'])->name('dosenp4');
+    Route::get('/dosenk4', [SuperD4Controller::class, 'dosenk'])->name('dosenk4');
+    Route::get('/gugusk4', [SuperD4Controller::class, 'gugusk'])->name('gugusk4');
 });
 
 

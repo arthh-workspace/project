@@ -39,7 +39,9 @@ class LoginController extends Controller
                 } elseif ($user->role == 'super_dosen2') {
                     return redirect()->intended('dosenp2');
                 } elseif ($user->role == 'super_dosen3') {
-                    return redirect()->intended('dosenp3');
+                    return redirect()->intended('dosenk3');
+                } elseif ($user->role == 'super_dosen4') {
+                    return redirect()->intended('dosenp4');
                 }
                 return redirect()->intended('/');
         }

@@ -42,7 +42,7 @@
                                                 <form action="{{ route('user.dosen.destroy', $data->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
-                                                    <a href="" class="btn btn-info btn-sm"><i
+                                                    <a href="{{ route('user.dosen.view', Crypt::encrypt($data->id)) }}" class="btn btn-info btn-sm"><i
                                                             class="nav-icon fas fa-eye"></i>Details
                                                     </a>
                                                     <a href="{{ route('user.dosen.edit', Crypt::encrypt($data->id)) }}"

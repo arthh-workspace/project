@@ -23,7 +23,7 @@ return new class extends Migration
             $table->enum('role', ['admin', 'gugus_kendali',
                                   'dosen_koor', 'dosen_pengampu',
                                   'mahasiswa','super_dosen1',
-                                  'super_dosen2','super_dosen3']
+                                  'super_dosen2','super_dosen3','super_dosen4']
                     )->default('admin');
             $table->string('password');
             $table->rememberToken();
