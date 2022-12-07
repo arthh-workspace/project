@@ -46,7 +46,7 @@ class UserDController extends Controller
             'name' => 'required',
             'email' => 'required',
             'username' => 'required',
-            'password' => 'required',
+            'jenis_kelamin'=>'required',
             'role' => 'required',
             'nip' => 'required',
             'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
@@ -67,7 +67,7 @@ class UserDController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'username' => $request->username,
-            'password' => Hash::make($request->password),
+            'password' => Hash::make($request->username),
             'role' => $request->role,
         ]);
 
@@ -86,9 +86,11 @@ class UserDController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $id = Crypt::decrypt($id);
+        $user = User::findorfail($id);
+        return view('menu.admin.user.dosen.view', compact('user'));
     }
 
     /**
@@ -129,7 +131,6 @@ class UserDController extends Controller
             'name' => 'required',
             'email' => 'required',
             'username' => 'required',
-            'password' => 'required',
             'role' => 'required',
         ]);
 
@@ -143,7 +144,6 @@ class UserDController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'username' => $request->username,
-                'password' => Hash::make($request->password),
                 'role' => $request->role,
                 'foto' => 'images/dosen/' . $new_foto
             ];

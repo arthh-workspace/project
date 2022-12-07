@@ -28,7 +28,17 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Nama </label>
+                                    <label for="username">Username </label>
+                                    <input type="text" name="username" value="{{ old('username') }}"
+                                        class="form-control @error('username') is-invalid @enderror" placeholder="Username">
+                                    <div class="text-danger">
+                                        @error('username')
+                                            Username tidak boleh kosong.
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Nama Lengkap </label>
                                     <input type="text" name="name" value="{{ old('name') }}"
                                         class="form-control @error('name') is-invalid @enderror" placeholder="Nama">
                                     <div class="text-danger">
@@ -48,16 +58,20 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="username">Username </label>
-                                    <input type="text" name="username" value="{{ old('username') }}"
-                                        class="form-control @error('username') is-invalid @enderror" placeholder="Username">
+                                    <label for="jenis_kelamin">Jenis Kelamin</label>
+                                    <select name="jenis_kelamin" value="{{ old('jenis_kelamin') }}"
+                                        class="form-control @error('jenis_kelamin') is-invalid @enderror">
+                                        <option value="">-- Jenis Kelamin --</option>
+                                        <option value="Laki-Laki">Laki-Laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                    </select>
                                     <div class="text-danger">
-                                        @error('username')
-                                            Username tidak boleh kosong.
+                                        @error('jenis_kelamin')
+                                            Jenis Kelamin tidak boleh kosong.
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="password">Password </label>
                                     <input type="text" name="password" value="{{ old('password') }}"
                                         class="form-control @error('password') is-invalid @enderror" placeholder="Password">
@@ -66,16 +80,11 @@
                                             Password tidak boleh kosong.
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
-                                    <label for="role">Kepala Bagian</label>
+                                    <label for="role">Role</label>
                                     <select name="role" value="{{ old('role') }}"
                                         class="form-control @error('role') is-invalid @enderror">
-                                        <option value="">-- Pilih Role --</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="gugus_kendali">Gugus Kendali</option>
-                                        <option value="dosen_koor">Dosen Koor</option>
-                                        <option value="dosen_pengampu">Dosen Pengampu</option>
                                         <option value="mahasiswa">Mahasiswa</option>
                                     </select>
                                     <div class="text-danger">

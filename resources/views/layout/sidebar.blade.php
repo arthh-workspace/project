@@ -243,10 +243,55 @@
                         </ul>
                     </li>
                 @endcan
+
                 {{-- Super Dosen 3 --}}
                 @can('super_dosen3')
                     <li class="nav-item">
-                        <a href="{{ route('dosenp3') }}" class="nav-link" id="Dashboard">
+                        <a href="{{ route('dosenk3') }}" class="nav-link" id="Dashboard">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Dashboard
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                RPS
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item has-treeview" id="masteruser">
+                        <a href="#" class="nav-link" id="user">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p> Login Sebagai
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('dosenk3') }}" class="nav-link" id="dosen">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p>Dosen Koor </p>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('gugusk3') }}" class="nav-link" id="mahasiswa">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p>Gugus Kendali </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endcan
+
+                {{-- Super Dosen 4 --}}
+                @can('super_dosen4')
+                    <li class="nav-item">
+                        <a href="{{ route('dosenp4') }}" class="nav-link" id="Dashboard">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Dashboard
@@ -270,7 +315,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('dosenp3') }}" class="nav-link" id="dosen">
+                                <a href="{{ route('dosenp4') }}" class="nav-link" id="dosen">
                                     <i class="nav-icon fas fa-user"></i>
                                     <p>Dosen Pengampu </p>
                                 </a>
@@ -278,7 +323,7 @@
                         </ul>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('dosenk3') }}" class="nav-link" id="mahasiswa">
+                                <a href="{{ route('dosenk4') }}" class="nav-link" id="mahasiswa">
                                     <i class="nav-icon fas fa-user"></i>
                                     <p>Dosen Koor </p>
                                 </a>
@@ -286,7 +331,7 @@
                         </ul>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('gugusk3') }}" class="nav-link" id="mahasiswa">
+                                <a href="{{ route('gugusk4') }}" class="nav-link" id="mahasiswa">
                                     <i class="nav-icon fas fa-user"></i>
                                     <p>Gugus Kendali </p>
                                 </a>

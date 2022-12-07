@@ -20,15 +20,25 @@
                                 <div class="form-group">
                                     <label for="email">Email </label>
                                     <input type="email" name="email" value="{{ old('email') }}"
-                                        class="form-control @error('email') is-invalid @enderror" placeholder="Email">
+                                    class="form-control @error('email') is-invalid @enderror" placeholder="Email">
                                     <div class="text-danger">
                                         @error('email')
-                                            Email tidak boleh kosong.
+                                        Email tidak boleh kosong.
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Nama </label>
+                                    <label for="username">Username </label>
+                                    <input type="text" name="username" value="{{ old('username') }}"
+                                        class="form-control @error('username') is-invalid @enderror" placeholder="Username">
+                                    <div class="text-danger">
+                                        @error('username')
+                                            Username tidak boleh kosong.
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Nama Lengkap </label>
                                     <input type="text" name="name" value="{{ old('name') }}"
                                         class="form-control @error('name') is-invalid @enderror" placeholder="Nama">
                                     <div class="text-danger">
@@ -48,16 +58,20 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="username">Username </label>
-                                    <input type="text" name="username" value="{{ old('username') }}"
-                                        class="form-control @error('username') is-invalid @enderror" placeholder="Username">
+                                    <label for="jenis_kelamin">Jenis Kelamin</label>
+                                    <select name="jenis_kelamin" value="{{ old('jenis_kelamin') }}"
+                                        class="form-control @error('jenis_kelamin') is-invalid @enderror">
+                                        <option value="">-- Jenis Kelamin --</option>
+                                        <option value="Laki-Laki">Laki-Laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                    </select>
                                     <div class="text-danger">
-                                        @error('username')
-                                            Username tidak boleh kosong.
+                                        @error('jenis_kelamin')
+                                            Jenis Kelamin tidak boleh kosong.
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="password">Password</label>
                                     <div class="input-group">
                                         <input type="password" name="password" id="pass" value="{{ old('password') }}"
@@ -79,9 +93,9 @@
                                             </span>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
-                                    <label for="role">Kepala Bagian</label>
+                                    <label for="role">Role</label>
                                     <select name="role" value="{{ old('role') }}"
                                         class="form-control @error('role') is-invalid @enderror">
                                         <option value="">-- Pilih Role --</option>
@@ -89,6 +103,10 @@
                                         <option value="gugus_kendali">Gugus Kendali</option>
                                         <option value="dosen_koor">Dosen Koor</option>
                                         <option value="dosen_pengampu">Dosen Pengampu</option>
+                                        <option value="super_dosen1">Super Dosen 1</option>
+                                        <option value="super_dosen2">Super Dosen 2</option>
+                                        <option value="super_dosen3">Super Dosen 3</option>
+                                        <option value="super_dosen4">Super Dosen 4</option>
                                     </select>
                                     <div class="text-danger">
                                         @error('role')

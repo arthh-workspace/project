@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layoutss.main')
 @section('web')
     <h1 class="m-0">Dashboard</h1>
 @endsection
@@ -6,7 +6,7 @@
     <li class="breadcrumb-item active">Dashboard</li>
 @endsection
 @section('content')
-    <p align="center">Dashboard K</p>
+    <p align="center">Dashboard G</p>
     <div id="wrapper">
         <div class="photoprofile">
             <img src="{{ Storage::url(Auth::user()->foto) }}" class="imgprofile"></img>

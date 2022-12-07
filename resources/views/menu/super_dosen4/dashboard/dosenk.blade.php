@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layouts.main')
 @section('web')
     <h1 class="m-0">Dashboard</h1>
 @endsection

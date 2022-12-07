@@ -37,9 +37,9 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 {{-- Super Dosen 3 --}}
-                @can('super_dosen3')
+                @can('super_dosen4')
                     <li class="nav-item">
-                        <a href="{{ route('dosenp3') }}" class="nav-link" id="Dashboard">
+                        <a href="{{ route('gugusk4') }}" class="nav-link" id="Dashboard">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Dashboard
@@ -63,7 +63,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('dosenp3') }}" class="nav-link" id="dosen">
+                                <a href="{{ route('dosenp4') }}" class="nav-link" id="dosen">
                                     <i class="nav-icon fas fa-user"></i>
                                     <p>Dosen Pengampu </p>
                                 </a>
@@ -71,7 +71,7 @@
                         </ul>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('dosenk3') }}" class="nav-link" id="mahasiswa">
+                                <a href="{{ route('dosenk4') }}" class="nav-link" id="mahasiswa">
                                     <i class="nav-icon fas fa-user"></i>
                                     <p>Dosen Koor </p>
                                 </a>
@@ -79,7 +79,7 @@
                         </ul>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('gugusk3') }}" class="nav-link" id="mahasiswa">
+                                <a href="{{ route('gugusk4') }}" class="nav-link" id="mahasiswa">
                                     <i class="nav-icon fas fa-user"></i>
                                     <p>Gugus Kendali </p>
                                 </a>

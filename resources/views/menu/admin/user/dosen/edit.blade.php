@@ -49,7 +49,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="password">Password </label>
                                     <input type="text" name="password" value="{{ $user->password }}"
                                         class="form-control @error('password') is-invalid @enderror" placeholder="Password">
@@ -58,7 +58,7 @@
                                             Password tidak boleh kosong.
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label for="role">Role</label>
                                     <select name="role" value="{{ $user->role }}"
@@ -71,6 +71,7 @@
                                         <option value="super_dosen1">Super Dosen 1</option>
                                         <option value="super_dosen2">Super Dosen 2</option>
                                         <option value="super_dosen3">Super Dosen 3</option>
+                                        <option value="super_dosen4">Super Dosen 4</option>
 
                                     </select>
                                     <div class="text-danger">

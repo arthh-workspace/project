@@ -6,6 +6,14 @@
     <li class="breadcrumb-item active">Dashboard</li>
 @endsection
 @section('content')
+    {{-- <p align="center">Profil Saya</p>
+    <div id="wrapper">
+            <div class="photoprofile">
+                <img src="logo.png" class="imgprofile"></img>
+            </div>
+            <h1>Nama : {{ Auth::user()->name }}</h1>
+    </div> --}}
+=======
     <p align="center">Profil Saya</p>
 
         <div class="card-group">
@@ -67,7 +75,6 @@
                   </div>
               </div>
             </div>
-             
 
             </div>
             {{-- <div class="card mb-4 mb-lg-0">
@@ -153,6 +160,7 @@
           </div>
         </div>
       </div>
+    </div>
 @endsection
 @section('script')
     <script type="text/javascript">
