@@ -13,7 +13,6 @@
             </div>
             <h1>Nama : {{ Auth::user()->name }}</h1>
     </div> --}}
-=======
     <p align="center">Profil Saya</p>
 
         <div class="card-group">
@@ -75,6 +74,57 @@
                   </div>
               </div>
             </div>
+
+            <div class="col-md-4">
+              <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6 col-8">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            
+                            <p>Dosen</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                        <a href="{{ route('user.dosen') }}" class="small-box-footer">Lihat<i
+                                class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-8">
+                    <!-- small box -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            
+                            <p>Mahasiswa</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                        <a href="{{ route('user.mahasiswa') }}" class="small-box-footer">Lihat<i
+                                class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-8">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            
+                            <p>Dosen</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                        <a href="{{ route('user.dosen') }}" class="small-box-footer">Lihat<i
+                                class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>  
 
             </div>
             {{-- <div class="card mb-4 mb-lg-0">
