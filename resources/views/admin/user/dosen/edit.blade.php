@@ -49,23 +49,16 @@
                                         @enderror
                                     </div>
                                 </div>
-<<<<<<< HEAD:resources/views/admin/user/dosen/edit.blade.php
                                 <div class="form-group">
                                     <label for="nip">Nip </label>
                                     <input type="text" name="nip" value="{{ $user->nip }}"
                                         class="form-control @error('nip') is-invalid @enderror" placeholder="Nip">
-=======
-                                {{-- <div class="form-group">
-                                    <label for="password">Password </label>
-                                    <input type="text" name="password" value="{{ $user->password }}"
-                                        class="form-control @error('password') is-invalid @enderror" placeholder="Password">
->>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383:resources/views/menu/admin/user/dosen/edit.blade.php
                                     <div class="text-danger">
                                         @error('nip')
                                             Nip tidak boleh kosong.
                                         @enderror
                                     </div>
-                                </div> --}}
+                                </div>
                                 <div class="form-group">
                                     <label for="jenis_kelamin">Jenis Kelamin</label>
                                     <select name="jenis_kelamin" value="{{ $user->jenis_kelamin }}"
@@ -116,10 +109,6 @@
                                         <option value="super_dosen2">Super Dosen 2</option>
                                         <option value="super_dosen3">Super Dosen 3</option>
                                         <option value="super_dosen4">Super Dosen 4</option>
-<<<<<<< HEAD:resources/views/admin/user/dosen/edit.blade.php
-=======
-
->>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383:resources/views/menu/admin/user/dosen/edit.blade.php
                                     </select>
                                     <div class="text-danger">
                                         @error('role')

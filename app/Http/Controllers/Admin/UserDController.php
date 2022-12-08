@@ -42,14 +42,6 @@ class UserDController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-<<<<<<< HEAD
-=======
-            'name' => 'required',
-            'email' => 'required',
-            'username' => 'required',
-            'jenis_kelamin'=>'required',
-            'role' => 'required',
->>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
             'nip' => 'required',
             'nama' => 'required',
             'jenis_kelamin' => 'required',
@@ -68,18 +60,6 @@ class UserDController extends Controller
         $destinationPath        = 'public/images/dosen';
         $gambar->storeAs($destinationPath, $new_gambar);
 
-<<<<<<< HEAD
-=======
-        $user = User::create([
-            'foto' => 'images/dosen/' . $new_gambar,
-            'name' => $request->name,
-            'email' => $request->email,
-            'username' => $request->username,
-            'password' => Hash::make($request->username),
-            'role' => $request->role,
-        ]);
-
->>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
         Dosen::create([
             'nama' => $request->nama,
             'nip' => $request->nip,
@@ -102,13 +82,8 @@ class UserDController extends Controller
     public function show($id)
     {
         $id = Crypt::decrypt($id);
-<<<<<<< HEAD
         $user = Dosen::findorfail($id);
         return view('admin.user.dosen.view', compact('user'));
-=======
-        $user = User::findorfail($id);
-        return view('menu.admin.user.dosen.view', compact('user'));
->>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
     }
 
     /**
@@ -149,12 +124,8 @@ class UserDController extends Controller
             'nama' => 'required',
             'jenis_kelamin' => 'required',
             'username' => 'required',
-<<<<<<< HEAD
             'email' => 'required',
             'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
-=======
-            'role' => 'required',
->>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
         ]);
 
         $gambar = $request->file('foto');
@@ -168,13 +139,8 @@ class UserDController extends Controller
                 'nip' => $request->nip,
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'username' => $request->username,
-<<<<<<< HEAD
                 'email' => $request->email,
                 'foto' => 'images/dosen/' . $new_foto,
-=======
-                'role' => $request->role,
-                'foto' => 'images/dosen/' . $new_foto
->>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
             ];
             $gambar->storeAs('public/images/dosen', $new_foto);
             $id->update($data);

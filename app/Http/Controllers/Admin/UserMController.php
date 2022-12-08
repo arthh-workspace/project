@@ -42,14 +42,6 @@ class UserMController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-<<<<<<< HEAD
-=======
-            'name' => 'required',
-            'email' => 'required',
-            'username' => 'required',
-            'role' => 'required',
-            'jenis_kelamin'=>'required',
->>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
             'nim' => 'required',
             'nama' => 'required',
             'kelas' => 'required',
@@ -70,7 +62,6 @@ class UserMController extends Controller
         $destinationPath        = 'public/images/mahasiswa';
         $gambar->storeAs($destinationPath, $new_gambar);
 
-<<<<<<< HEAD
         Mahasiswa::create([
             'nim'           => $request->nim,
             'nama'          => $request->nama,
@@ -81,22 +72,6 @@ class UserMController extends Controller
             'email'         => $request->email,
             'password'      => Hash::make($request->username),
             'foto'          => 'images/mahasiswa/' . $new_gambar,
-=======
-        $user = User::create([
-            'foto' => 'images/mahasiswa/' . $new_gambar,
-            'name' => $request->name,
-            'email' => $request->email,
-            'username' => $request->username,
-            'password' => Hash::make($request->username),
-            'role' => $request->role,
-        ]);
-
-        Mahasiswa::create([
-            'nim'           => $request->nim,
-            'nama'          => $user->name,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'user_id'       => $user->id
->>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
         ]);
         return redirect('/user_mahasiswa')->with('success', 'Berhasil menambahkan data Mahasiswa');
     }
