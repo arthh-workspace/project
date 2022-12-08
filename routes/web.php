@@ -7,15 +7,6 @@ use App\Http\Controllers\Admin\UserDController;
 use App\Http\Controllers\Admin\UserMController;
 use App\Http\Controllers\Dosen\DosenController;
 use App\Http\Controllers\Mahasiswa\MahasiswaController;
-<<<<<<< HEAD
-=======
-use App\Http\Controllers\Super_dosen1\SuperD1Controller;
-use App\Http\Controllers\Super_dosen2\SuperD2Controller;
-use App\Http\Controllers\Super_dosen3\SuperD3Controller;
-use App\Http\Controllers\Super_dosen4\SuperD4Controller;
-use App\Http\Controllers\Dosen_pengampu\DosenPController;
-
->>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
 
 /*
 |--------------------------------------------------------------------------
@@ -61,49 +52,6 @@ Route::group(['middleware' => 'auth:dosen'], function () {
     ////////// Dashboard /////////
     Route::get('/dosen', [DosenController::class, 'index'])->name('dosen');
 });
-<<<<<<< HEAD
-=======
-// Dosen Koor
-Route::group(['middleware' => ['auth', 'checkRole:dosen_koor']], function () {
-    ////////// Dashboard /////////
-    Route::get('/dosen_koor', [DosenKController::class, 'index'])->name('dosen_koor');
-});
-// Dosen Pengampu
-Route::group(['middleware' => ['auth', 'checkRole:dosen_pengampu']], function () {
-    ////////// Dashboard /////////
-    Route::get('/dosen_pengampu', [DosenPController::class, 'index'])->name('dosen_pengampu');
-});
-
-
-// Super Dosen 1
-Route::group(['middleware' => ['auth', 'checkRole:super_dosen1']], function () {
-    ////////// Dashboard /////////
-    Route::get('/dosenp1', [SuperD1Controller::class, 'dosenp'])->name('dosenp1');
-    Route::get('/dosenk1', [SuperD1Controller::class, 'dosenk'])->name('dosenk1');
-});
-// Super Dosen 2
-Route::group(['middleware' => ['auth', 'checkRole:super_dosen2']], function () {
-    ////////// Dashboard /////////
-    Route::get('/dosenp2', [SuperD2Controller::class, 'dosenp'])->name('dosenp2');
-    Route::get('/gugusk2', [SuperD2Controller::class, 'gugusk'])->name('gugusk2');
-});
-// Super Dosen 3
-Route::group(['middleware' => ['auth', 'checkRole:super_dosen3']], function () {
-    ////////// Dashboard /////////
-    Route::get('/dosenk3', [SuperD3Controller::class, 'dosenk'])->name('dosenk3');
-    Route::get('/gugusk3', [SuperD3Controller::class, 'gugusk'])->name('gugusk3');
-});
-// Super Dosen 4
-Route::group(['middleware' => ['auth', 'checkRole:super_dosen4']], function () {
-    ////////// Dashboard /////////
-    Route::get('/dosenp4', [SuperD4Controller::class, 'dosenp'])->name('dosenp4');
-    Route::get('/dosenk4', [SuperD4Controller::class, 'dosenk'])->name('dosenk4');
-    Route::get('/gugusk4', [SuperD4Controller::class, 'gugusk'])->name('gugusk4');
-});
-
-
-
->>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
 // Mahasiswa
 Route::group(['middleware' => 'auth:mahasiswa'], function () {
     ////////// Dashboard /////////
