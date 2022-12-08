@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Mahasiswa;
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
 
 class mahasiswaseeder extends Seeder
 {
@@ -18,11 +18,17 @@ class mahasiswaseeder extends Seeder
         $mahasiswa = [
             [
                 'id'                    => 1,
-                'user_id'               => 3,
-                'nama'                  => 'Rizal Eka Budi Pratama',
-                'prodi'                 => 'Teknik Informatika',
                 'nim'                   => '362055401186',
-                'jenis_kelamin'         => 'Laki-Laki',
+                'nama'                  => 'Rizal Eka Budi Pratama',
+                'jenis_kelamin'         => 'L',
+                'kelas'                 => 'G',
+                'prodi'                 => 'TRPL',
+                'username'              => 'mahasiswa',
+                'email'                 => 'mahasiswa@gmail.com',
+                'email_verified_at'     => NULL,
+                'password'              => bcrypt('1'),
+                'foto'                  => 'mahasiswa',
+                'remember_token'        => null,
                 'created_at'            => '2021-05-17 04:21:52',
                 'updated_at'            => '2021-05-17 04:21:52',
             ],

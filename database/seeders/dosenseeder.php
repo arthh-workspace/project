@@ -18,10 +18,15 @@ class dosenseeder extends Seeder
         $dosen = [
             [
                 'id'                    => 1,
-                'user_id'               => 2,
-                'nama'                  => 'Dilan Setiawan',
                 'nip'                   => '1234567889',
-                'jenis_kelamin'         => 'Laki-Laki',
+                'nama'                  => 'Dilan Setiawan',
+                'jenis_kelamin'         => 'L',
+                'username'              => 'dosen',
+                'email'                 => 'dosen@gmail.com',
+                'email_verified_at'     => NULL,
+                'password'              => bcrypt('1'),
+                'foto'                  => 'dosen',
+                'remember_token'        => null,
                 'created_at'            => '2021-05-17 04:21:52',
                 'updated_at'            => '2021-05-17 04:21:52',
             ],

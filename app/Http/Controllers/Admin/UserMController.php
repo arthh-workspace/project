@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Mahasiswa;
@@ -20,8 +19,8 @@ class UserMController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        return view('menu.admin.user.mahasiswa.index', compact('user'));
+        $user = Mahasiswa::all();
+        return view('admin.user.mahasiswa.index', compact('user'));
     }
 
     /**
@@ -31,7 +30,7 @@ class UserMController extends Controller
      */
     public function create()
     {
-        return view('menu.admin.user.mahasiswa.add');
+        return view('admin.user.mahasiswa.add');
     }
 
     /**
@@ -43,12 +42,21 @@ class UserMController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+<<<<<<< HEAD
+=======
             'name' => 'required',
             'email' => 'required',
             'username' => 'required',
             'role' => 'required',
             'jenis_kelamin'=>'required',
+>>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
             'nim' => 'required',
+            'nama' => 'required',
+            'kelas' => 'required',
+            'prodi' => 'required',
+            'jenis_kelamin' => 'required',
+            'username' => 'required',
+            'email' => 'required',
             'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
@@ -62,6 +70,18 @@ class UserMController extends Controller
         $destinationPath        = 'public/images/mahasiswa';
         $gambar->storeAs($destinationPath, $new_gambar);
 
+<<<<<<< HEAD
+        Mahasiswa::create([
+            'nim'           => $request->nim,
+            'nama'          => $request->nama,
+            'kelas'         => $request->kelas,
+            'prodi'         => $request->prodi,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'username'      => $request->username,
+            'email'         => $request->email,
+            'password'      => Hash::make($request->username),
+            'foto'          => 'images/mahasiswa/' . $new_gambar,
+=======
         $user = User::create([
             'foto' => 'images/mahasiswa/' . $new_gambar,
             'name' => $request->name,
@@ -76,6 +96,7 @@ class UserMController extends Controller
             'nama'          => $user->name,
             'jenis_kelamin' => $request->jenis_kelamin,
             'user_id'       => $user->id
+>>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
         ]);
         return redirect('/user_mahasiswa')->with('success', 'Berhasil menambahkan data Mahasiswa');
     }
@@ -83,10 +104,10 @@ class UserMController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Mahasiswa  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Mahasiswa $user)
     {
         //
     }
@@ -94,32 +115,35 @@ class UserMController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Mahasiswa  $user
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $id = Crypt::decrypt($id);
-        $user = User::findorfail($id);
-        return view('menu.admin.user.mahasiswa.edit', compact('user'));
+        $user = Mahasiswa::findorfail($id);
+        return view('admin.user.mahasiswa.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Mahasiswa  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Mahasiswa $user)
     {
-        $user = User::where('id', $request->id)
+        $user = Mahasiswa::where('id', $request->id)
             ->update([
-                'email' => $request->email,
-                'name' => $request->name,
-                'username' => $request->username,
-                'password' => Hash::make($request->password),
-                'role' => $request->role,
+                'nim' => 'required',
+                'nama' => 'required',
+                'kelas' => 'required',
+                'prodi' => 'required',
+                'jenis_kelamin' => 'required',
+                'username' => 'required',
+                'email' => 'required',
+                'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
             ]);
 
         return redirect()->route('user.mahasiswa');
@@ -128,10 +152,10 @@ class UserMController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Mahasiswa  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $id)
+    public function destroy(Mahasiswa $id)
     {
         $filename = $id->foto;
         Storage::disk('public')->delete($filename);
@@ -142,7 +166,7 @@ class UserMController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->search;
-        $user = User::where('name', 'like', "%" . $keyword . "%")->paginate(5);
-        return view('menu.admin.user.index', compact('user'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $user = Mahasiswa::where('name', 'like', "%" . $keyword . "%")->paginate(5);
+        return view('admin.user.index', compact('user'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

@@ -10,6 +10,6 @@ class MahasiswaController extends Controller
 {
     public function index()
     {
-        return view('menu.mahasiswa.dashboard.index');
+        return view('mahasiswa.dashboard.index');
     }
 }

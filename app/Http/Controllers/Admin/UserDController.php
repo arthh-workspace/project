@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\User;
 use App\Models\Dosen;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,8 +19,8 @@ class UserDController extends Controller
      */
     public function index()
     {
-        $user = User::with('dosen')->get();
-        return view('menu.admin.user.dosen.index', compact('user'));
+        $user = Dosen::all();
+        return view('admin.user.dosen.index', compact('user'));
     }
 
     /**
@@ -31,7 +30,7 @@ class UserDController extends Controller
      */
     public function create()
     {
-        return view('menu.admin.user.dosen.add');
+        return view('admin.user.dosen.add');
     }
 
     /**
@@ -43,12 +42,19 @@ class UserDController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+<<<<<<< HEAD
+=======
             'name' => 'required',
             'email' => 'required',
             'username' => 'required',
             'jenis_kelamin'=>'required',
             'role' => 'required',
+>>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
             'nip' => 'required',
+            'nama' => 'required',
+            'jenis_kelamin' => 'required',
+            'username' => 'required',
+            'email' => 'required',
             'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
@@ -62,6 +68,8 @@ class UserDController extends Controller
         $destinationPath        = 'public/images/dosen';
         $gambar->storeAs($destinationPath, $new_gambar);
 
+<<<<<<< HEAD
+=======
         $user = User::create([
             'foto' => 'images/dosen/' . $new_gambar,
             'name' => $request->name,
@@ -71,10 +79,15 @@ class UserDController extends Controller
             'role' => $request->role,
         ]);
 
+>>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
         Dosen::create([
-            'nip'  => $request->nip,
-            'nama' => $user->name,
-            'user_id' => $user->id
+            'nama' => $request->nama,
+            'nip' => $request->nip,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => Hash::make($request->username),
+            'foto' => 'images/dosen/' . $new_gambar,
         ]);
 
         return redirect('/user_dosen')->with('success', 'Berhasil menambahkan data Dosen');
@@ -83,39 +96,44 @@ class UserDController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Dosen  $user
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $id = Crypt::decrypt($id);
+<<<<<<< HEAD
+        $user = Dosen::findorfail($id);
+        return view('admin.user.dosen.view', compact('user'));
+=======
         $user = User::findorfail($id);
         return view('menu.admin.user.dosen.view', compact('user'));
+>>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Dosen  $user
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $id = Crypt::decrypt($id);
-        $user = User::findorfail($id);
-        return view('menu.admin.user.dosen.edit', compact('user'));
+        $user = Dosen::findorfail($id);
+        return view('admin.user.dosen.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Dosen  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,User $id)
+    public function update(Request $request, Dosen $id)
     {
-        // $user = User::where('id', $request->id)
+        // $user = Dosen::where('id', $request->id)
         //     ->update([
         //         'email' => $request->email,
         //         'name' => $request->name,
@@ -127,11 +145,16 @@ class UserDController extends Controller
         // return redirect()->route('user.dosen');
 
         $this->validate($request, [
-            'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
-            'name' => 'required',
-            'email' => 'required',
+            'nip' => 'required',
+            'nama' => 'required',
+            'jenis_kelamin' => 'required',
             'username' => 'required',
+<<<<<<< HEAD
+            'email' => 'required',
+            'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+=======
             'role' => 'required',
+>>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
         ]);
 
         $gambar = $request->file('foto');
@@ -141,11 +164,17 @@ class UserDController extends Controller
             $gambar = $request->file('foto');
             $new_foto = date('s' . 'i' . 'H' . 'd' . 'm' . 'Y') . '_' . $gambar->GetClientOriginalName();
             $data = [
-                'name' => $request->name,
-                'email' => $request->email,
+                'nama' => $request->nama,
+                'nip' => $request->nip,
+                'jenis_kelamin' => $request->jenis_kelamin,
                 'username' => $request->username,
+<<<<<<< HEAD
+                'email' => $request->email,
+                'foto' => 'images/dosen/' . $new_foto,
+=======
                 'role' => $request->role,
                 'foto' => 'images/dosen/' . $new_foto
+>>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
             ];
             $gambar->storeAs('public/images/dosen', $new_foto);
             $id->update($data);
@@ -160,10 +189,10 @@ class UserDController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Dosen  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $id)
+    public function destroy(Dosen $id)
     {
         $filename = $id->foto;
         Storage::disk('public')->delete($filename);
@@ -174,7 +203,7 @@ class UserDController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->search;
-        $user = User::where('name', 'like', "%" . $keyword . "%")->paginate(5);
-        return view('menu.admin.user.index', compact('user'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $user = Dosen::where('name', 'like', "%" . $keyword . "%")->paginate(5);
+        return view('admin.user.index', compact('user'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

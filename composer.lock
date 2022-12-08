@@ -899,6 +899,7 @@
         },
         {
             "name": "laravel/framework",
+<<<<<<< HEAD
             "version": "v9.43.0",
             "source": {
                 "type": "git",
@@ -909,6 +910,31 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/011f2e1d49a11c22519a7899b46ddf3bc5b0f40b",
                 "reference": "011f2e1d49a11c22519a7899b46ddf3bc5b0f40b",
+=======
+<<<<<<< HEAD
+            "version": "v9.39.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "67e674709e1e7db14f304a871481f310822d68c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/67e674709e1e7db14f304a871481f310822d68c5",
+                "reference": "67e674709e1e7db14f304a871481f310822d68c5",
+=======
+            "version": "v9.43.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "011f2e1d49a11c22519a7899b46ddf3bc5b0f40b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/011f2e1d49a11c22519a7899b46ddf3bc5b0f40b",
+                "reference": "011f2e1d49a11c22519a7899b46ddf3bc5b0f40b",
+>>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
+>>>>>>> main
                 "shasum": ""
             },
             "require": {
@@ -1081,7 +1107,15 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
+<<<<<<< HEAD
             "time": "2022-12-06T14:26:07+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2022-11-08T14:47:39+00:00"
+=======
+            "time": "2022-12-06T14:26:07+00:00"
+>>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
+>>>>>>> main
         },
         {
             "name": "laravel/sanctum",
@@ -1715,6 +1749,26 @@
         },
         {
             "name": "nesbot/carbon",
+<<<<<<< HEAD
+            "version": "2.64.0",
+=======
+<<<<<<< HEAD
+            "version": "2.63.0",
+>>>>>>> main
+            "source": {
+                "type": "git",
+                "url": "https://github.com/briannesbitt/Carbon.git",
+                "reference": "889546413c97de2d05063b8cb7b193c2531ea211"
+            },
+            "dist": {
+                "type": "zip",
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/889546413c97de2d05063b8cb7b193c2531ea211",
+                "reference": "889546413c97de2d05063b8cb7b193c2531ea211",
+=======
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/ad35dd71a6a212b98e4b87e97389b6fa85f0e347",
+                "reference": "ad35dd71a6a212b98e4b87e97389b6fa85f0e347",
+=======
             "version": "2.64.0",
             "source": {
                 "type": "git",
@@ -1725,6 +1779,8 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/889546413c97de2d05063b8cb7b193c2531ea211",
                 "reference": "889546413c97de2d05063b8cb7b193c2531ea211",
+>>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
+>>>>>>> main
                 "shasum": ""
             },
             "require": {
@@ -1813,7 +1869,15 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2022-11-26T17:36:00+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2022-10-30T18:34:28+00:00"
+=======
+            "time": "2022-11-26T17:36:00+00:00"
+>>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
+>>>>>>> main
         },
         {
             "name": "nette/schema",
