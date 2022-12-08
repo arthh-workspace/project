@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Mahasiswa;
+namespace App\Http\Controllers\Dosen;
 
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class MahasiswaController extends Controller
+class DosenController extends Controller
 {
     public function index()
     {
-        return view('mahasiswa.dashboard.index');
+        return view('dosen.dashboard.index');
     }
 }
