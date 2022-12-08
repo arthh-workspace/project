@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('gugus_kendalis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_dosen');
+            $table->bigInteger('id_dosen')->unsigned();
+            $table->foreign('id_dosen')->references('id')
+              ->on('dosens');
             $table->timestamps();
         });
     }

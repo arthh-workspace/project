@@ -57,3 +57,24 @@ Route::group(['middleware' => 'auth:mahasiswa'], function () {
     ////////// Dashboard /////////
     Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa');
 });
+
+Route::get('relasi-1', function(){
+    $dosen = App\Models\gugus_kendali::where('id','=','1')->first();
+
+    return $dosen->dosen->nama;
+});
+
+Route::get('relasi-2', function(){
+    $dosenkoor = App\Models\Dosen::where('username','=','dosen1')->first();
+
+    return $dosenkoor->koor->semester;
+});
+
+Route::get('relasi-3', function () {
+    $dosenmatkul = App\Models\Dosen::where('username', '=', 'dosen1')->first();
+
+    # Tampilkan seluruh data mahasiswa didikannya
+    foreach ($dosenmatkul->matkul as $temp) {
+        echo '<li> id dosen : ' . $temp->id_dosen . ' <strong>' . $temp->ruang . '</strong></li>';
+    }
+});

@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(adminseeder::class);
         $this->call(mahasiswaseeder::class);
         $this->call(dosenseeder::class);
+        // $this->call(KoordinatorSeeder::class);
+        $this->call(RelasiSeeder::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
