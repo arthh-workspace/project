@@ -13,7 +13,6 @@
             </div>
             <h1>Nama : {{ Auth::user()->name }}</h1>
     </div> --}}
-=======
     <p align="center">Profil Saya</p>
 
         <div class="card-group">
