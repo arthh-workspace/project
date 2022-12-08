@@ -25,6 +25,44 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+<<<<<<< HEAD
         //
+=======
+        Gate::define('admin', function ($user) {
+            return $user->role == 'admin';
+        });
+
+        Gate::define('gugus_kendali', function ($user) {
+            return $user->role == 'gugus_kendali';
+        });
+
+        Gate::define('dosen_koor', function ($user) {
+            return $user->role == 'dosen_koor';
+        });
+
+        Gate::define('dosen_pengampu', function ($user) {
+            return $user->role == 'dosen_pengampu';
+        });
+
+        Gate::define('mahasiswa', function ($user) {
+            return $user->role == 'mahasiswa';
+        });
+
+        Gate::define('super_dosen1', function ($user) {
+            return $user->role == 'super_dosen1';
+        });
+
+        Gate::define('super_dosen2', function ($user) {
+            return $user->role == 'super_dosen2';
+        });
+
+        Gate::define('super_dosen3', function ($user) {
+            return $user->role == 'super_dosen3';
+        });
+
+        Gate::define('super_dosen4', function ($user) {
+            return $user->role == 'super_dosen4';
+        });
+>>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383
     }
 }

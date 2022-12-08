@@ -31,6 +31,19 @@
                                     <label for="username">Username </label>
                                     <input type="text" name="username" value="{{ old('username') }}"
                                         class="form-control @error('username') is-invalid @enderror" placeholder="Username">
+<<<<<<< HEAD:resources/views/admin/user/dosen/add.blade.php
+=======
+                                    <div class="text-danger">
+                                        @error('username')
+                                            Username tidak boleh kosong.
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Nama Lengkap </label>
+                                    <input type="text" name="name" value="{{ old('name') }}"
+                                        class="form-control @error('name') is-invalid @enderror" placeholder="Nama">
+>>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383:resources/views/menu/admin/user/dosen/add.blade.php
                                     <div class="text-danger">
                                         @error('username')
                                             Username tidak boleh kosong.
@@ -62,8 +75,13 @@
                                     <select name="jenis_kelamin" value="{{ old('jenis_kelamin') }}"
                                         class="form-control @error('jenis_kelamin') is-invalid @enderror">
                                         <option value="">-- Jenis Kelamin --</option>
+<<<<<<< HEAD:resources/views/admin/user/dosen/add.blade.php
                                         <option value="L">Laki-Laki</option>
                                         <option value="P">Perempuan</option>
+=======
+                                        <option value="Laki-Laki">Laki-Laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+>>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383:resources/views/menu/admin/user/dosen/add.blade.php
                                     </select>
                                     <div class="text-danger">
                                         @error('jenis_kelamin')
@@ -94,7 +112,11 @@
                                         </div>
                                     </div>
                                 </div> --}}
+<<<<<<< HEAD:resources/views/admin/user/dosen/add.blade.php
                                 {{-- <div class="form-group">
+=======
+                                <div class="form-group">
+>>>>>>> 64a1ed44b9a73acea72eae6a2fa673fa7563f383:resources/views/menu/admin/user/dosen/add.blade.php
                                     <label for="role">Role</label>
                                     <select name="role" value="{{ old('role') }}"
                                         class="form-control @error('role') is-invalid @enderror">
