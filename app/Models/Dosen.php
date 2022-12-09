@@ -43,4 +43,16 @@ class Dosen extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function gkm(){
+        return $this->hasOne('App\Models\gugus_kendali', 'id_dosen');
+    }
+
+    public function koor(){
+        return $this->hasOne('App\Models\koordinator', 'id_dosen');
+    }
+
+    public function matkul(){
+        return $this->hasMany('App\Models\jadwal', 'id_dosen');
+    }
 }

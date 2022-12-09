@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kordinators', function (Blueprint $table) {
+        Schema::create('koordinators', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_dosen');
-            $table->foreignId('id_matkul');
+            $table->bigInteger('id_dosen')->unsigned();
+            $table->foreign('id_dosen')->references('id')
+              ->on('dosens');
+            $table->integer('id_matkul');
             $table->integer('semester');
             $table->timestamps();
         });
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kordinators');
+        Schema::dropIfExists('koordinators');
     }
 };

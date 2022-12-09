@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_dosen');
-            $table->foreignId('id_koor');
+            $table->bigInteger('id_dosen')->unsigned();
+            $table->foreign('id_dosen')->references('id')->on('dosens');
+            $table->bigInteger('id_koor')->unsigned();
+            $table->foreign('id_koor')->references('id')->on('koordinators');
             $table->date('hari');
             $table->string('ruang');
             $table->time('waktu');
