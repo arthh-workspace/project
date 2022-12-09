@@ -58,11 +58,11 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="kelas">Kelas</label>
                                     <select name="kelas" value="{{ $user->kelas }}"
                                         class="form-control @error('kelas') is-invalid @enderror">
-                                        <option value="{{ $user->jenis_kelamin }}">{{ $user->jenis_kelamin }}</option>
+                                        <option value="{{ $user->kelas }}">{{ $user->kelas }}</option>
                                         <option value="A">A</option>
                                         <option value="B">B</option>
                                         <option value="C">C</option>
@@ -73,10 +73,10 @@
                                     </select>
                                     <div class="text-danger">
                                         @error('kelas')
-                                            Jenis Kelamin tidak boleh kosong.
+                                            Kelas tidak boleh kosong.
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label for="prodi">Prodi </label>
                                     <input type="text" name="prodi" value="{{ $user->prodi }}"

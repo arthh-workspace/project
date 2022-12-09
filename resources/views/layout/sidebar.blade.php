@@ -144,7 +144,7 @@
                     </li>
                 @endcan
                 {{-- Mahasiswa --}}
-                @can('mahasiswa')
+                @if (Str::length(Auth::guard('mahasiswa')->user()) > 0)
                     <li class="nav-item">
                         <a href="{{ route('mahasiswa') }}" class="nav-link" id="Dashboard">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -154,13 +154,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('kuisioner') }}" class="nav-link" id="kuisioner">
                             <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Kuesioner
+                            <p>Kuesioner</p>
                         </a>
                     </li>
-                @endcan
+                @endif
 
                 {{-- Super Dosen 1 --}}
                 @can('super_dosen1')

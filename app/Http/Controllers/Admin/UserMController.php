@@ -113,7 +113,6 @@ class UserMController extends Controller
             ->update([
                 'nim' => 'required',
                 'nama' => 'required',
-                'kelas' => 'required',
                 'prodi' => 'required',
                 'jenis_kelamin' => 'required',
                 'username' => 'required',

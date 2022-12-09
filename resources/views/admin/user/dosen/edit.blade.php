@@ -22,10 +22,10 @@
                                 <div class="form-group">
                                     <label for="email">Email </label>
                                     <input type="email" name="email" value="{{ $user->email }}"
-                                    class="form-control @error('email') is-invalid @enderror" placeholder="Email">
+                                        class="form-control @error('email') is-invalid @enderror" placeholder="Email">
                                     <div class="text-danger">
                                         @error('email')
-                                        Email tidak boleh kosong.
+                                            Email tidak boleh kosong.
                                         @enderror
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@
                                             <input type="file"
                                                 class="custom-file-input @error('foto') is-invalid @enderror"
                                                 name="foto">
-                                            <label class="custom-file-label" for="foto">{{ $user->foto }}</label>
+                                            <label class="custom-file-label" for="foto">Pilih Foto</label>
                                         </div>
                                     </div>
                                     <div class="text-danger">
