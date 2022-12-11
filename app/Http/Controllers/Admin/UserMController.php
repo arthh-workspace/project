@@ -107,20 +107,41 @@ class UserMController extends Controller
      * @param  \App\Models\Mahasiswa  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mahasiswa $user)
+    public function update(Request $request, Mahasiswa $id)
     {
-        $user = Mahasiswa::where('id', $request->id)
-            ->update([
-                'nim' => 'required',
-                'nama' => 'required',
-                'prodi' => 'required',
-                'jenis_kelamin' => 'required',
-                'username' => 'required',
-                'email' => 'required',
-                'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
-            ]);
+        $this->validate($request, [
+            'nim' => 'required',
+            'nama' => 'required',
+            'prodi' => 'required',
+            'jenis_kelamin' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+            'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
 
-        return redirect()->route('user.mahasiswa');
+        $gambar = $request->file('foto');
+
+        if (!empty($gambar)) {
+            $data = $request->all();
+            $gambar = $request->file('foto');
+            $new_foto = date('s' . 'i' . 'H' . 'd' . 'm' . 'Y') . '_' . $gambar->GetClientOriginalName();
+            $data = [
+                'nim' => $request->nim,
+                'nama' => $request->nama,
+                'prodi' => $request->prodi,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'username' => $request->username,
+                'email' => $request->email,
+                'foto' => 'images/dosen/' . $new_foto,
+            ];
+            $gambar->storeAs('public/images/dosen', $new_foto);
+            $id->update($data);
+        } else {
+            $data = $request->all();
+            $id->update($data);
+        }
+
+        return redirect()->route('user.mahasiswa')->with('success', 'Data Mahasiswa berhasil diubah');
     }
 
     /**

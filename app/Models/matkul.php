@@ -10,4 +10,9 @@ class matkul extends Model
     use HasFactory;
 
     protected $fillable = ['id', 'nama_matkul', 'jumlah_sks'];
+
+    public function rps()
+    {
+        return $this->hasMany(rps::class);
+    }
 }

@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('rps', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_matkul');
+            $table->unsignedBigInteger('id_matkul');
             $table->string('versi');
             $table->timestamps();
+
+            $table->foreign('id_matkul')->references('id')->on('matkuls')->onDelete('cascade');
         });
     }
 

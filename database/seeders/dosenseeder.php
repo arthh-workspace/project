@@ -18,7 +18,7 @@ class dosenseeder extends Seeder
         $dosen = [
             [
                 'id'                    => 1,
-                'nip'                   => '1234567889',
+                'nip'                   => '1234529889',
                 'nama'                  => 'Dilan Setiawan',
                 'jenis_kelamin'         => 'L',
                 'username'              => 'dosen',

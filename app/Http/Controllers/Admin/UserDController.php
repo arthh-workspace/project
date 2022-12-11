@@ -108,17 +108,6 @@ class UserDController extends Controller
      */
     public function update(Request $request, Dosen $id)
     {
-        // $user = Dosen::where('id', $request->id)
-        //     ->update([
-        //         'email' => $request->email,
-        //         'name' => $request->name,
-        //         'username' => $request->username,
-        //         'password' => Hash::make($request->password),
-        //         'role' => $request->role,
-        //     ]);
-
-        // return redirect()->route('user.dosen');
-
         $this->validate($request, [
             'nip' => 'required',
             'nama' => 'required',

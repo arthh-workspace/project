@@ -19,7 +19,7 @@ class RelasiSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('dosens')->delete();
+        // DB::table('dosens')->delete();
         DB::table('gugus_kendalis')->delete();
         DB::table('koordinators')->delete();
         DB::table('jadwals')->delete();

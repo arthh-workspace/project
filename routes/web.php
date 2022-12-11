@@ -59,6 +59,8 @@ Route::group(['middleware' => 'auth:mahasiswa'], function () {
     Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa');
     ////////// Kuisioner /////////
     Route::get('/mahasiswa/kuisioner', [KuisionerController::class, 'index'])->name('kuisioner');
+    Route::post('/mahasiswa/kuisioner/store', [KuisionerController::class, 'store'])->name('kuisioner.store');
+    Route::get('/mahasiswa/kuisioner/result', [KuisionerController::class, 'result'])->name('kuisioner.result');
 });
 
 Route::get('relasi-1', function(){

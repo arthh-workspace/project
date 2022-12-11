@@ -14,7 +14,8 @@
                 <div class="col-md-10">
                     <!-- general form elements -->
                     <div class="card card-outline card-info">
-                        <form action="{{ route('user.mahasiswa.update', $user->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('user.mahasiswa.update', $user->id) }}" method="post"
+                            enctype="multipart/form-data">
                             @csrf
                             @method('patch')
                             <div class="card-body">
@@ -101,29 +102,19 @@
                                         @enderror
                                     </div>
                                 </div>
-                                {{-- <div class="form-group">
-                                    <label for="password">Password </label>
-                                    <input type="text" name="password" value="{{ old('password') }}"
-                                        class="form-control @error('password') is-invalid @enderror" placeholder="Password">
-                                    <div class="text-danger">
-                                        @error('password')
-                                            Password tidak boleh kosong.
-                                        @enderror
-                                    </div>
-                                </div> --}}
-                                {{-- <div class="form-group">
-                                    <label for="role">Role</label>
-                                    <select name="role" value="{{ old('role') }}"
-                                        class="form-control @error('role') is-invalid @enderror">
-                                        <option value="mahasiswa">Mahasiswa</option>
-                                    </select>
-                                    <div class="text-danger">
-                                        @error('role')
-                                            Role tidak boleh kosong.
-                                        @enderror
-                                    </div>
-                                </div> --}}
                                 <div class="form-group">
+                                    <label for="foto" class="form-label">Foto </label>
+                                    <div class="input-group">
+                                        <input class="form-control @error('foto') is-invalid @enderror" type="file"
+                                            id="formFile" name="foto">
+                                    </div>
+                                    <div class="text-danger">
+                                        @error('foto')
+                                            Foto tidak boleh kosong.
+                                        @enderror
+                                    </div>
+                                </div>
+                                {{-- <div class="form-group">
                                     <label for="foto">Pilih File</label>
                                     <div class="input-group">
                                         <div class="custom-file">
@@ -138,7 +129,7 @@
                                             Foto tidak boleh kosong.
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer justify-content-between">
