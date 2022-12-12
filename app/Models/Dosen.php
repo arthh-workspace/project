@@ -17,11 +17,12 @@ class Dosen extends Authenticatable
      *
      * @var array<int, string>
      */
-    // protected $fillable = [
-    //     'nama',
-    //     'email',
-    //     'password',
-    // ];
+    protected $fillable = [
+        'id',
+        'nama',
+        'email',
+        'password',
+    ];
 
     protected $guarded = [];
 
