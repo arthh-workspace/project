@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserDController;
 use App\Http\Controllers\Admin\UserMController;
 use App\Http\Controllers\Dosen\DosenController;
+use App\Http\Controllers\Mahasiswa\KuisionerController;
 use App\Http\Controllers\Mahasiswa\MahasiswaController;
 
 /*
@@ -56,6 +57,10 @@ Route::group(['middleware' => 'auth:dosen'], function () {
 Route::group(['middleware' => 'auth:mahasiswa'], function () {
     ////////// Dashboard /////////
     Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa');
+    ////////// Kuisioner /////////
+    Route::get('/mahasiswa/kuisioner', [KuisionerController::class, 'index'])->name('kuisioner');
+    Route::post('/mahasiswa/kuisioner/store', [KuisionerController::class, 'store'])->name('kuisioner.store');
+    Route::get('/mahasiswa/kuisioner/result', [KuisionerController::class, 'result'])->name('kuisioner.result');
 });
 
 Route::get('relasi-1', function(){

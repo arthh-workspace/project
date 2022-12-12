@@ -11,8 +11,14 @@ class jadwal extends Model
 
     protected $fillable = ['id_dosen', 'id_koor', 'hari', 'Ruang', 'Waktu'];
 
+    protected $dates = ['hari'];
+
     public function dosen()
     {
      return $this->belongsTo('App\Models\dosen', 'id_dosen') && $this ->belongsTo('App\Models\koordinator', 'id_koor');
+    }
+    public function mahasiswa()
+    {
+        return $this->belongsToMany(Mahasiswa::class, 'perkuliahans');
     }
 }

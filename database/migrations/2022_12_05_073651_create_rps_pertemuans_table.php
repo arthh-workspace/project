@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('perkuliahans', function (Blueprint $table) {
+        Schema::create('rps_pertemuans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_jadwal');
-            $table->foreignId('nim_mahasiswa');
+            $table->unsignedBigInteger('id_rps');
+            $table->integer('pertemuan_ke');
+            $table->integer('capaian_pembelajaran_pertemuan');
             $table->timestamps();
+
+            $table->foreign('id_rps')->references('id')->on('rps')->onDelete('cascade');
         });
     }
 
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('perkuliahans');
+        Schema::dropIfExists('rps_pertemuans');
     }
 };

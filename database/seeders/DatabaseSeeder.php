@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call(dosenseeder::class);
         // $this->call(KoordinatorSeeder::class);
         $this->call(RelasiSeeder::class);
+        $this->call(rpsseeder::class);
+        $this->call(pertemuanseeder::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

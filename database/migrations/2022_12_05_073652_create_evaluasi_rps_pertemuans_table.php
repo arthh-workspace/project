@@ -15,10 +15,13 @@ return new class extends Migration
     {
         Schema::create('evaluasi_rps_pertemuans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_rps_mingguan');
-            $table->foreignId('id_kuliah');
+            $table->unsignedBigInteger('id_rps_mingguan');
+            $table->unsignedBigInteger('id_kuliah');
             $table->enum('kesesuaian', ['S', 'TS']);
             $table->timestamps();
+
+            $table->foreign('id_rps_mingguan')->references('id')->on('rps_pertemuans')->onDelete('cascade');
+            $table->foreign('id_kuliah')->references('id')->on('perkuliahans')->onDelete('cascade');
         });
     }
 

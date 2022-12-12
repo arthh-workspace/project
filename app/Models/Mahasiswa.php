@@ -43,4 +43,12 @@ class Mahasiswa extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    // public function jadwal()
+    // {
+    //     return $this->belongsToMany(jadwal::class, 'perkuliahans');
+    // }
+    public function jadwal()
+    {
+        return $this->belongsToMany(jadwal::class, 'perkuliahans', 'id_mahasiswa', 'id_jadwal');
+    }
 }
