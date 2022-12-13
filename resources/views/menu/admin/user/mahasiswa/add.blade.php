@@ -14,14 +14,12 @@
                 <div class="col-md-10">
                     <!-- general form elements -->
                     <div class="card card-outline card-info">
-                        <form action="{{ route('user.dosen.update', $user->id) }}" method="post"
-                            enctype="multipart/form-data">
+                        <form action="{{ route('user.mahasiswa.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
-                            @method('patch')
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="email">Email </label>
-                                    <input type="email" name="email" value="{{ $user->email }}"
+                                    <input type="email" name="email" value="{{ old('email') }}"
                                         class="form-control @error('email') is-invalid @enderror" placeholder="Email">
                                     <div class="text-danger">
                                         @error('email')
@@ -31,7 +29,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="username">Username </label>
-                                    <input type="text" name="username" value="{{ $user->username }}"
+                                    <input type="text" name="username" value="{{ old('username') }}"
                                         class="form-control @error('username') is-invalid @enderror" placeholder="Username">
                                     <div class="text-danger">
                                         @error('username')
@@ -40,32 +38,32 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nama">Nama Lengkap </label>
-                                    <input type="text" name="nama" value="{{ $user->nama }}"
-                                        class="form-control @error('nama') is-invalid @enderror" placeholder="Nama">
+                                    <label for="name">Nama Lengkap </label>
+                                    <input type="text" name="name" value="{{ old('name') }}"
+                                        class="form-control @error('name') is-invalid @enderror" placeholder="Nama">
                                     <div class="text-danger">
-                                        @error('nama')
+                                        @error('name')
                                             Nama tidak boleh kosong.
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nip">Nip </label>
-                                    <input type="text" name="nip" value="{{ $user->nip }}"
-                                        class="form-control @error('nip') is-invalid @enderror" placeholder="Nip">
+                                    <label for="nim">Nim </label>
+                                    <input type="text" name="nim" value="{{ old('nim') }}"
+                                        class="form-control @error('nim') is-invalid @enderror" placeholder="Nim">
                                     <div class="text-danger">
-                                        @error('nip')
-                                            Nip tidak boleh kosong.
+                                        @error('nim')
+                                            Nim tidak boleh kosong.
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="jenis_kelamin">Jenis Kelamin</label>
-                                    <select name="jenis_kelamin" value="{{ $user->jenis_kelamin }}"
+                                    <select name="jenis_kelamin" value="{{ old('jenis_kelamin') }}"
                                         class="form-control @error('jenis_kelamin') is-invalid @enderror">
-                                        <option value="{{ $user->jenis_kelamin }}">{{ $user->jenis_kelamin }}</option>
-                                        <option value="L">Laki-Laki</option>
-                                        <option value="P">Perempuan</option>
+                                        <option value="">-- Jenis Kelamin --</option>
+                                        <option value="Laki-Laki">Laki-Laki</option>
+                                        <option value="Perempuan">Perempuan</option>
                                     </select>
                                     <div class="text-danger">
                                         @error('jenis_kelamin')
@@ -74,48 +72,27 @@
                                     </div>
                                 </div>
                                 {{-- <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <div class="input-group">
-                                        <input type="password" name="password" id="pass" value="{{ old('password') }}"
-                                            class="form-control @error('password') is-invalid @enderror"
-                                            placeholder="Password">
-                                        <div class="input-group-append">
-
-                                            <!-- kita pasang onclick untuk merubah icon buka/tutup mata setiap diklik  -->
-                                            <span id="mybutton" onclick="change()" class="input-group-text">
-
-                                                <!-- icon mata bawaan bootstrap  -->
-                                                <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                                    class="bi bi-eye-fill" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                                                    <path fill-rule="evenodd"
-                                                        d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
-                                                </svg>
-                                            </span>
-                                        </div>
+                                    <label for="password">Password </label>
+                                    <input type="text" name="password" value="{{ old('password') }}"
+                                        class="form-control @error('password') is-invalid @enderror" placeholder="Password">
+                                    <div class="text-danger">
+                                        @error('password')
+                                            Password tidak boleh kosong.
+                                        @enderror
                                     </div>
                                 </div> --}}
-                                {{-- <div class="form-group">
+                                <div class="form-group">
                                     <label for="role">Role</label>
                                     <select name="role" value="{{ old('role') }}"
                                         class="form-control @error('role') is-invalid @enderror">
-                                        <option value="">-- Pilih Role --</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="gugus_kendali">Gugus Kendali</option>
-                                        <option value="dosen_koor">Dosen Koor</option>
-                                        <option value="dosen_pengampu">Dosen Pengampu</option>
-                                        <option value="super_dosen1">Super Dosen 1</option>
-                                        <option value="super_dosen2">Super Dosen 2</option>
-                                        <option value="super_dosen3">Super Dosen 3</option>
-                                        <option value="super_dosen4">Super Dosen 4</option>
+                                        <option value="mahasiswa">Mahasiswa</option>
                                     </select>
                                     <div class="text-danger">
                                         @error('role')
                                             Role tidak boleh kosong.
                                         @enderror
                                     </div>
-                                </div> --}}
+                                </div>
                                 <div class="form-group">
                                     <label for="foto">Pilih File</label>
                                     <div class="input-group">
@@ -135,7 +112,7 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer justify-content-between">
-                                <a href="{{ route('user.dosen') }}" class="btn btn-default"><i
+                                <a href="{{ route('user.mahasiswa') }}" class="btn btn-default"><i
                                         class='nav-icon fas fa-arrow-left'></i>
                                     &nbsp; Kembali</a>
                                 <button type="submit" class="btn btn-primary float-right">Simpan</button>
@@ -155,6 +132,6 @@
     <script type="text/javascript">
         $("#masteruser").addClass("menu-open");
         $("#user").addClass("active");
-        $("#dosen").addClass("active");
+        $("#mahasiswa").addClass("active");
     </script>
 @endsection

@@ -21,6 +21,11 @@
                             </h3>
                         </div>
                         <!-- /.card-header -->
+                        @if (session('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
@@ -190,6 +195,18 @@
                                         Foto tidak boleh kosong.
                                     @enderror
                                 </div>
+
+
+                                {{-- <label for="foto">Pilih File</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file"
+                                            class="custom-file-input @error('foto') is-invalid @enderror"
+                                            name="foto">
+                                        <label class="custom-file-label" for="foto">Pilih Foto</label>
+                                    </div>
+                                </div>
+                                 --}}
                             </div>
                         </div>
                         <!-- /.card-body -->
