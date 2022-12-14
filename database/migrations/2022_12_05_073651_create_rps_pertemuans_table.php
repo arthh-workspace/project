@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_rps');
             $table->integer('pertemuan_ke');
-            $table->integer('capaian_pembelajaran_pertemuan');
+            $table->string('capaian_pembelajaran_pertemuan');
             $table->timestamps();
 
             $table->foreign('id_rps')->references('id')->on('rps')->onDelete('cascade');

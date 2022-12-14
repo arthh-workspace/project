@@ -57,6 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="content">
                 <div class="container-fluid">
                     @yield('content')
+                    @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
                     <!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>

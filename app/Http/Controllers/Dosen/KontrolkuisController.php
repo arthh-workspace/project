@@ -1,18 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Mahasiswa;
+namespace App\Http\Controllers\Dosen;
 
 use App\Models\rps;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Dosen;
-use App\Models\evaluasi_rps_pertemuan;
-use App\Models\matkul;
-use App\Models\perkuliahan;
-use App\Models\rps_pertemuan;
-use App\Models\jadwal;
 
-class KuisionerController extends Controller
+class KontrolkuisController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,12 +15,7 @@ class KuisionerController extends Controller
      */
     public function index()
     {
-        $dosen = Dosen::all();
-        $matkul = matkul::latest()->get();
-        $evaluasi = evaluasi_rps_pertemuan::all();
-        $jadwal = jadwal::all();
-        $pertemuan = rps_pertemuan::all();
-        return view('mahasiswa.kuisioner.index', compact('dosen', 'matkul', 'evaluasi','jadwal','pertemuan'));
+        return view('dosen.kontrol_kuis.index');
     }
 
     /**
@@ -34,9 +23,9 @@ class KuisionerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function result()
+    public function create()
     {
-        return view('mahasiswa.kuisioner.result');
+        //
     }
 
     /**
@@ -47,27 +36,7 @@ class KuisionerController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'nama'      => 'required',
-            'nama_matkul'=>'required',
-            'kesesuaian' => 'required',
-            'id_jadwal'  => 'required',
-            'id_rps_mingguan' => 'required'
-        ]);
-
-        $perkuliahan = perkuliahan::create([
-            'id_jadwal' => $request->id_jadwal,
-            'id_mahasiswa' => auth()->user()->id,
-        ]);
-
-
-        evaluasi_rps_pertemuan::create([
-            'id_rps_mingguan' => $request->id_rps_mingguan,
-            'id_kuliah' => $perkuliahan->id,
-            'kesesuaian' => $request->kesesuaian,
-        ]);
-
-        return redirect('/mahasiswa/kuisioner/result')->with('success', 'Berhasil Mengisi Kuisioner');
+        //
     }
 
     /**
@@ -76,8 +45,6 @@ class KuisionerController extends Controller
      * @param  \App\Models\rps  $rps
      * @return \Illuminate\Http\Response
      */
-
-
     public function show(rps $rps)
     {
         //

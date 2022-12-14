@@ -125,9 +125,9 @@
                     </li>
                 @endcan
                 {{-- Dosen Pengampu --}}
-                @can('dosen_pengampu')
+                @if (Str::length(Auth::guard('dosen')->user()) > 0)
                     <li class="nav-item">
-                        <a href="{{ route('dosen_pengampu') }}" class="nav-link" id="Dashboard">
+                        <a href="{{ route('dosen') }}" class="nav-link" id="Dashboard">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Dashboard
@@ -135,14 +135,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('dosen.kontrol') }}" class="nav-link" id="kontrols">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Kontrol Kuesioner
                             </p>
                         </a>
                     </li>
-                @endcan
+                @endif
                 {{-- Mahasiswa --}}
                 @if (Str::length(Auth::guard('mahasiswa')->user()) > 0)
                     <li class="nav-item">

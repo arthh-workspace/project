@@ -153,7 +153,7 @@ class UserDController extends Controller
         Storage::disk('public')->delete($filename);
         $id->delete();
 
-        return redirect()->route('user.dosen')->with('error', 'Data dosen berhasil dihapus');
+        return redirect()->route('user.dosen')->with('info', 'Data dosen berhasil dihapus');
     }
     public function search(Request $request)
     {

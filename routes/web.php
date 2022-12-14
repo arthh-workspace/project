@@ -1,11 +1,13 @@
 <?php
 
+use App\Models\Dosen;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserDController;
 use App\Http\Controllers\Admin\UserMController;
 use App\Http\Controllers\Dosen\DosenController;
+use App\Http\Controllers\Dosen\KontrolkuisController;
 use App\Http\Controllers\Mahasiswa\KuisionerController;
 use App\Http\Controllers\Mahasiswa\MahasiswaController;
 
@@ -24,7 +26,7 @@ use App\Http\Controllers\Mahasiswa\MahasiswaController;
 //     return view('welcome');
 // });
 
-Route::get('/', [LoginController::class, 'index'])->name('home')->middleware('guest');
+Route::get('/', [LoginController::class, 'index'])->name('home');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
@@ -52,11 +54,17 @@ Route::group(['middleware' => 'auth:admin'], function () {
 Route::group(['middleware' => 'auth:dosen'], function () {
     ////////// Dashboard /////////
     Route::get('/dosen', [DosenController::class, 'index'])->name('dosen');
+    ////////// Kontrol Kuisioner /////////
+    Route::get('/dosen/kontrol_kuis', [KontrolkuisController::class, 'index'])->name('dosen.kontrol');
+
 });
 // Mahasiswa
 Route::group(['middleware' => 'auth:mahasiswa'], function () {
     ////////// Dashboard /////////
     Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa');
+    ////////// Edit Profile /////////
+    Route::get('/mahasiswa/edit', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
+    Route::patch('/mahasiswa/editpofile', [MahasiswaController::class, 'store'])->name('mahasiswa.editprofile');
     ////////// Kuisioner /////////
     Route::get('/mahasiswa/kuisioner', [KuisionerController::class, 'index'])->name('kuisioner');
     Route::post('/mahasiswa/kuisioner/store', [KuisionerController::class, 'store'])->name('kuisioner.store');
