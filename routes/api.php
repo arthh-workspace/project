@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Dosen;
+use App\Models\koordinator;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -64,6 +65,13 @@ Route::get('/sanctum/dosen', function (Request $request){
     $dosen = Dosen::all();
     return response()->json([
         'All dosen' => $dosen
+    ]);
+});
+
+Route::get('/sanctum/dosen/koor', function (Request $request){
+    $dosen = koordinator::all();
+    return response()->json([
+        'All dosen Koor' => $dosen
     ]);
 });
 

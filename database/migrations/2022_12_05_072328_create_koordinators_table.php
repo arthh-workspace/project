@@ -18,7 +18,8 @@ return new class extends Migration
             $table->bigInteger('id_dosen')->unsigned();
             $table->foreign('id_dosen')->references('id')
               ->on('dosens');
-            $table->integer('id_matkul');
+            $table->bigInteger('id_matkul')->references('id')
+            ->on('matkuls');
             $table->integer('semester');
             $table->timestamps();
         });

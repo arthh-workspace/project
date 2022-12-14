@@ -6,8 +6,10 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserDController;
 use App\Http\Controllers\Admin\UserMController;
 use App\Http\Controllers\Dosen\DosenController;
+use App\Http\Controllers\Dosen\DosenMatkulController;
 use App\Http\Controllers\Mahasiswa\KuisionerController;
 use App\Http\Controllers\Mahasiswa\MahasiswaController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +54,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
 Route::group(['middleware' => 'auth:dosen'], function () {
     ////////// Dashboard /////////
     Route::get('/dosen', [DosenController::class, 'index'])->name('dosen');
+    Route::get('/dosenmatkul', [DosenController::class, 'indexmatkul'])->name('dosen');
 });
 // Mahasiswa
 Route::group(['middleware' => 'auth:mahasiswa'], function () {
@@ -83,3 +86,5 @@ Route::get('relasi-3', function () {
         echo '<li> id dosen : ' . $temp->id_dosen . ' <strong>' . $temp->ruang . '</strong></li>';
     }
 });
+
+Route::get('join_table', [LoginController::class, 'log']);
