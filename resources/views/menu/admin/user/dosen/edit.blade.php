@@ -40,67 +40,30 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nama">Nama Lengkap </label>
-                                    <input type="text" name="nama" value="{{ $user->nama }}"
-                                        class="form-control @error('nama') is-invalid @enderror" placeholder="Nama">
+                                    <label for="name">Nama </label>
+                                    <input type="text" name="name" value="{{ $user->name }}"
+                                        class="form-control @error('name') is-invalid @enderror" placeholder="Nama">
                                     <div class="text-danger">
-                                        @error('nama')
+                                        @error('name')
                                             Nama tidak boleh kosong.
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="nip">Nip </label>
-                                    <input type="text" name="nip" value="{{ $user->nip }}"
-                                        class="form-control @error('nip') is-invalid @enderror" placeholder="Nip">
-                                    <div class="text-danger">
-                                        @error('nip')
-                                            Nip tidak boleh kosong.
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="jenis_kelamin">Jenis Kelamin</label>
-                                    <select name="jenis_kelamin" value="{{ $user->jenis_kelamin }}"
-                                        class="form-control @error('jenis_kelamin') is-invalid @enderror">
-                                        <option value="{{ $user->jenis_kelamin }}">{{ $user->jenis_kelamin }}</option>
-                                        <option value="L">Laki-Laki</option>
-                                        <option value="P">Perempuan</option>
-                                    </select>
-                                    <div class="text-danger">
-                                        @error('jenis_kelamin')
-                                            Jenis Kelamin tidak boleh kosong.
-                                        @enderror
-                                    </div>
-                                </div>
                                 {{-- <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <div class="input-group">
-                                        <input type="password" name="password" id="pass" value="{{ old('password') }}"
-                                            class="form-control @error('password') is-invalid @enderror"
-                                            placeholder="Password">
-                                        <div class="input-group-append">
-
-                                            <!-- kita pasang onclick untuk merubah icon buka/tutup mata setiap diklik  -->
-                                            <span id="mybutton" onclick="change()" class="input-group-text">
-
-                                                <!-- icon mata bawaan bootstrap  -->
-                                                <svg width="1em" height="1em" viewBox="0 0 16 16"
-                                                    class="bi bi-eye-fill" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                                                    <path fill-rule="evenodd"
-                                                        d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
-                                                </svg>
-                                            </span>
-                                        </div>
+                                    <label for="password">Password </label>
+                                    <input type="text" name="password" value="{{ $user->password }}"
+                                        class="form-control @error('password') is-invalid @enderror" placeholder="Password">
+                                    <div class="text-danger">
+                                        @error('password')
+                                            Password tidak boleh kosong.
+                                        @enderror
                                     </div>
                                 </div> --}}
-                                {{-- <div class="form-group">
+                                <div class="form-group">
                                     <label for="role">Role</label>
-                                    <select name="role" value="{{ old('role') }}"
+                                    <select name="role" value="{{ $user->role }}"
                                         class="form-control @error('role') is-invalid @enderror">
-                                        <option value="">-- Pilih Role --</option>
+                                        <option value="{{ $user->role }}">{{ $user->role }}</option>
                                         <option value="admin">Admin</option>
                                         <option value="gugus_kendali">Gugus Kendali</option>
                                         <option value="dosen_koor">Dosen Koor</option>
@@ -109,13 +72,14 @@
                                         <option value="super_dosen2">Super Dosen 2</option>
                                         <option value="super_dosen3">Super Dosen 3</option>
                                         <option value="super_dosen4">Super Dosen 4</option>
+
                                     </select>
                                     <div class="text-danger">
                                         @error('role')
                                             Role tidak boleh kosong.
                                         @enderror
                                     </div>
-                                </div> --}}
+                                </div>
                                 <div class="form-group">
                                     <label for="foto">Pilih File</label>
                                     <div class="input-group">
@@ -123,7 +87,7 @@
                                             <input type="file"
                                                 class="custom-file-input @error('foto') is-invalid @enderror"
                                                 name="foto">
-                                            <label class="custom-file-label" for="foto">Pilih Foto</label>
+                                            <label class="custom-file-label" for="foto">Pilih File</label>
                                         </div>
                                     </div>
                                     <div class="text-danger">

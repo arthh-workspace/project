@@ -14,24 +14,22 @@
                 <div class="col-md-10">
                     <!-- general form elements -->
                     <div class="card card-outline card-info">
-                        <form action="{{ route('user.dosen.update', $user->id) }}" method="post"
-                            enctype="multipart/form-data">
+                        <form action="{{ route('user.dosen.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
-                            @method('patch')
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="email">Email </label>
-                                    <input type="email" name="email" value="{{ $user->email }}"
-                                        class="form-control @error('email') is-invalid @enderror" placeholder="Email">
+                                    <input type="email" name="email" value="{{ old('email') }}"
+                                    class="form-control @error('email') is-invalid @enderror" placeholder="Email">
                                     <div class="text-danger">
                                         @error('email')
-                                            Email tidak boleh kosong.
+                                        Email tidak boleh kosong.
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="username">Username </label>
-                                    <input type="text" name="username" value="{{ $user->username }}"
+                                    <input type="text" name="username" value="{{ old('username') }}"
                                         class="form-control @error('username') is-invalid @enderror" placeholder="Username">
                                     <div class="text-danger">
                                         @error('username')
@@ -40,18 +38,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nama">Nama Lengkap </label>
-                                    <input type="text" name="nama" value="{{ $user->nama }}"
-                                        class="form-control @error('nama') is-invalid @enderror" placeholder="Nama">
+                                    <label for="name">Nama Lengkap </label>
+                                    <input type="text" name="name" value="{{ old('name') }}"
+                                        class="form-control @error('name') is-invalid @enderror" placeholder="Nama">
                                     <div class="text-danger">
-                                        @error('nama')
+                                        @error('name')
                                             Nama tidak boleh kosong.
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="nip">Nip </label>
-                                    <input type="text" name="nip" value="{{ $user->nip }}"
+                                    <input type="text" name="nip" value="{{ old('nip') }}"
                                         class="form-control @error('nip') is-invalid @enderror" placeholder="Nip">
                                     <div class="text-danger">
                                         @error('nip')
@@ -61,11 +59,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="jenis_kelamin">Jenis Kelamin</label>
-                                    <select name="jenis_kelamin" value="{{ $user->jenis_kelamin }}"
+                                    <select name="jenis_kelamin" value="{{ old('jenis_kelamin') }}"
                                         class="form-control @error('jenis_kelamin') is-invalid @enderror">
-                                        <option value="{{ $user->jenis_kelamin }}">{{ $user->jenis_kelamin }}</option>
-                                        <option value="L">Laki-Laki</option>
-                                        <option value="P">Perempuan</option>
+                                        <option value="">-- Jenis Kelamin --</option>
+                                        <option value="Laki-Laki">Laki-Laki</option>
+                                        <option value="Perempuan">Perempuan</option>
                                     </select>
                                     <div class="text-danger">
                                         @error('jenis_kelamin')
@@ -96,7 +94,7 @@
                                         </div>
                                     </div>
                                 </div> --}}
-                                {{-- <div class="form-group">
+                                <div class="form-group">
                                     <label for="role">Role</label>
                                     <select name="role" value="{{ old('role') }}"
                                         class="form-control @error('role') is-invalid @enderror">
@@ -115,7 +113,7 @@
                                             Role tidak boleh kosong.
                                         @enderror
                                     </div>
-                                </div> --}}
+                                </div>
                                 <div class="form-group">
                                     <label for="foto">Pilih File</label>
                                     <div class="input-group">
@@ -153,6 +151,9 @@
 @endsection
 @section('script')
     <script type="text/javascript">
+        $(document).ready(function() {
+            bsCustomFileInput.init();
+        });
         $("#masteruser").addClass("menu-open");
         $("#user").addClass("active");
         $("#dosen").addClass("active");
