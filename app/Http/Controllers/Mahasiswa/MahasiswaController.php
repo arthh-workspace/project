@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Mahasiswa;
 
-use App\Models\User;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

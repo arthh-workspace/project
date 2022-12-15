@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Dosen;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Admin\AdminController;

@@ -14,19 +14,6 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
-    public function admin()
-    {
-        $admin = Admin::all();
-        return view('admin',compact('admin'));
-    }
-    public function dosen()
-    {
-        return view('dosen');
-    }
-    public function mahasiswa()
-    {
-        return view('mahasiswa');
-    }
 
     public function login(Request $request)
     {
@@ -47,6 +34,7 @@ class LoginController extends Controller
 
         return redirect('/');
     }
+
     public function logout(Request $request)
     {
         Auth::logout();
