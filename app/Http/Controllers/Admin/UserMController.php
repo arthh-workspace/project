@@ -132,9 +132,9 @@ class UserMController extends Controller
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'username' => $request->username,
                 'email' => $request->email,
-                'foto' => 'images/dosen/' . $new_foto,
+                'foto' => 'images/mahasiswa/' . $new_foto,
             ];
-            $gambar->storeAs('public/images/dosen', $new_foto);
+            $gambar->storeAs('public/images/mahasiswa', $new_foto);
             $id->update($data);
         } else {
             $data = $request->all();

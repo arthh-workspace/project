@@ -27,7 +27,7 @@ class mahasiswaseeder extends Seeder
                 'email'                 => 'mahasiswa@gmail.com',
                 'email_verified_at'     => NULL,
                 'password'              => bcrypt('1'),
-                'foto'                  => 'mahasiswa',
+                'foto'                  => 'images/mahasiswa/defaultm.jpg',
                 'remember_token'        => null,
                 'created_at'            => '2021-05-17 04:21:52',
                 'updated_at'            => '2021-05-17 04:21:52',
