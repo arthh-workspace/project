@@ -82,7 +82,7 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            
+
                             <p>Dosen</p>
                         </div>
                         <div class="icon">
@@ -97,7 +97,7 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            
+
                             <p>Mahasiswa</p>
                         </div>
                         <div class="icon">
@@ -112,7 +112,7 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            
+
                             <p>Dosen</p>
                         </div>
                         <div class="icon">
@@ -124,12 +124,12 @@
                 </div>
                 </div>
               </div>
-            </div>  
+            </div>
 
             </div>
                   </div>
                 </div>
-             
+
 @endsection
 @section('script')
     <script type="text/javascript">
