@@ -54,6 +54,8 @@ Route::group(['middleware' => 'auth:admin'], function () {
 Route::group(['middleware' => 'auth:dosen'], function () {
     ////////// Dashboard /////////
     Route::get('/dosen', [DosenController::class, 'index'])->name('dosen');
+    ////////// Kontrol Kuis //////
+    Route::get('/dosen/kontrolkuis', [KontrolkuisController::class, 'index'])->name('dosen.kontrol');
 });
 // Mahasiswa
 Route::group(['middleware' => 'auth:mahasiswa'], function () {

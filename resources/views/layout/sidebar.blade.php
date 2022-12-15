@@ -148,7 +148,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('kuisioner') }}" class="nav-link">
+                        <a href="{{ route('kuisioner') }}" class="nav-link" id="kuisioner">
                             <i class="nav-icon fas fa-th"></i>
                             <p>Kuesioner</p>
                         </a>

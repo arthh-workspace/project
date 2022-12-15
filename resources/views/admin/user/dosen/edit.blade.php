@@ -117,6 +117,18 @@
                                     </div>
                                 </div> --}}
                                 <div class="form-group">
+                                    <label for="foto" class="form-label">Foto </label>
+                                    <div class="input-group">
+                                        <input class="form-control @error('foto') is-invalid @enderror" type="file"
+                                            id="formFile" name="foto">
+                                    </div>
+                                    <div class="text-danger">
+                                        @error('foto')
+                                            Foto tidak boleh kosong.
+                                        @enderror
+                                    </div>
+                                </div>
+                                {{-- <div class="form-group">
                                     <label for="foto">Pilih File</label>
                                     <div class="input-group">
                                         <div class="custom-file">
@@ -131,7 +143,7 @@
                                             Foto tidak boleh kosong.
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer justify-content-between">

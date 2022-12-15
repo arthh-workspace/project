@@ -66,7 +66,7 @@ class UserDController extends Controller
             'jenis_kelamin' => $request->jenis_kelamin,
             'username' => $request->username,
             'email' => $request->email,
-            'password' => Hash::make($request->username),
+            'password' => Hash::make('1'),
             'foto' => 'images/dosen/' . $new_gambar,
         ]);
 

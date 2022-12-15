@@ -13,7 +13,7 @@
     <div class="card mb-4 elevation-3" style=" border-radius: 10px">
         <div class="row no-gutters">
         <div class="col-md-3" style="margin-left: 110px;  margin-top: 30px;">
-                <img src="{{ Auth::guard('dosen')->user()->foto }}" alt="avatar"
+                <img src="{{ Storage::url(Auth::guard('dosen')->user()->foto ) }}" alt="avatar"
                 class="rounded-circle img-fluid" style="width: 150px;">
                 <h1 style="font-family: 'Garamond', Times, serif; font-size: 25px; align: right; margin-left: -40px; margin-top: 30px">{{ Auth::guard('dosen')->user()->nama }}</h1>
               <button class="btn btn-primary btn-sm" style="margin-left: 40px"><i
@@ -61,7 +61,7 @@
     </div>
           </div>
         </div>
-    
+
 @endsection
 @section('script')
     <script type="text/javascript">
