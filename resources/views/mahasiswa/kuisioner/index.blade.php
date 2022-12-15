@@ -19,9 +19,9 @@
                                 <label for="nama">Dosen Pengampu</label>
                                 <select name="nama" value="{{ old('nama') }}"
                                     class="form-control @error('nama') is-invalid @enderror">
-                                    <option value="">-- Pilih Dosen --</option>
+                                    <option hidden>-- Pilih Dosen --</option>
                                     @foreach ($dosen as $item)
-                                        <option value="{{ $item->nama }}">{{ $item->nama }}</option>
+                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
                                     @endforeach
                                 </select>
                                 <div class="text-danger">
@@ -34,9 +34,9 @@
                                 <label for="nama_matkul">Mata Kuliah</label>
                                 <select name="nama_matkul" value="{{ old('nama_matkul') }}"
                                     class="form-control @error('nama_matkul') is-invalid @enderror">
-                                    <option value="">-- Pilih Mata Kuliah --</option>
+                                    <option hidden>-- Pilih Mata Kuliah --</option>
                                     @foreach ($matkul as $item)
-                                        <option value="{{ $item->nama_matkul }}">{{ $item->nama_matkul }}</option>
+                                        <option value="{{ $item->id }}">{{ $item->nama_matkul }}</option>
                                     @endforeach
                                 </select>
                                 <div class="text-danger">
@@ -49,11 +49,9 @@
                                 <label for="id_jadwal">Jadwal</label>
                                 <select name="id_jadwal" value="{{ old('jadwal') }}"
                                     class="form-control @error('id_jadwal') is-invalid @enderror">
-                                    <option value="">-- Pilih Jadwal --</option>
+                                    <option hidden>-- Pilih Jadwal --</option>
                                     @foreach ($jadwal as $item)
-                                        <option value="{{ $item->id }}">Tanggal :
-                                            {{ showDateTime($item->hari, 'l, d F Y') }} Waktu : {{ $item->waktu }}
-                                        </option>
+                                        <option value="{{ $item->id }}">Tanggal : {{ showDateTime($item->hari, 'l, d F Y') }} Waktu : {{$item->waktu}} </option>
                                     @endforeach
                                 </select>
                                 <div class="text-danger">
@@ -66,10 +64,9 @@
                                 <label for="id_rps_mingguan">Pertemuan</label>
                                 <select name="id_rps_mingguan" value="{{ old('pertemuan_ke') }}"
                                     class="form-control @error('id_rps_mingguan') is-invalid @enderror">
-                                    <option value="">-- Pertemuan ke --</option>
+                                    <option hidden>-- Pertemuan ke --</option>
                                     @foreach ($pertemuan as $item)
-                                        <option value="{{ $item->id }}">Pertemuan ke {{ $item->pertemuan_ke }}
-                                        </option>
+                                        <option value="{{ $item->id }}">Pertemuan ke {{$item->pertemuan_ke}}</option>
                                     @endforeach
                                 </select>
                                 <div class="text-danger">
@@ -78,50 +75,24 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="id_rps_mingguan">Capaian Pembelajaran</label>
-                                <select name="id_rps_mingguan" value="{{ old('capaian_pembelajaran_pertemuan') }}"
-                                    class="form-control @error('id_rps_mingguan') is-invalid @enderror">
-                                    <option value="">-- Capaian Pembelajaran --</option>
-                                    @foreach ($pertemuan as $item)
-                                        <option value="{{ $item->id }}">{{ $item->capaian_pembelajaran_pertemuan }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <div class="text-danger">
-                                    @error('id_rps_mingguan')
-                                        Pertemuan tidak boleh kosong.
-                                    @enderror
-                                </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer justify-content-between">
+                                <a href="{{ route('user.dosen') }}" class="btn btn-default"><i
+                                        class='nav-icon fas fa-arrow-left'></i>
+                                    &nbsp; Kembali</a>
+                                <button type="submit" class="btn btn-primary float-right">Simpan</button>
                             </div>
-                            <div class="form-group">
-                                <label for="kesesuaian">Kesesuaian </label> <br>
-                                <div class="form-check form-check-inline">
-                                    <label for="kesesuaian">
-                                        <input type="radio" name="kesesuaian" value="S" id="kesesuaian">Sesuai
-                                        <input type="radio" name="kesesuaian" value="TS" id="kesesuaian">Tidak Sesuai
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.card-body -->
-                        <div class="card-footer justify-content-between">
-                            <button type="submit" class="btn btn-primary float-left">Submit</button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+                    <!-- /.card -->
                 </div>
-                <!-- /.card -->
+                <!--/.col (left) -->
             </div>
-            <!--/.col (left) -->
-        </div>
-        <!-- /.row -->
-    </div><!-- /.container-fluid -->
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
 @endsection
 @section('script')
     <script type="text/javascript">
-        $(document).ready(function() {
-            bsCustomFileInput.init();
-        });
         $("#kuisioner").addClass("active");
     </script>
 @endsection

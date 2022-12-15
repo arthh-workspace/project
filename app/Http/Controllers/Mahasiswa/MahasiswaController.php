@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Mahasiswa;
 
 class MahasiswaController extends Controller
 {

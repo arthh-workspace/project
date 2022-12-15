@@ -19,10 +19,10 @@ class RelasiSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('dosens')->delete();
-        DB::table('gugus_kendalis')->delete();
-        DB::table('koordinators')->delete();
-        DB::table('jadwals')->delete();
+        DB::table('dosens');
+        DB::table('gugus_kendalis');
+        DB::table('koordinators');
+        DB::table('jadwals');
 
         $dosen1 = Dosen::create(array(
             'nip'                   => '1234567889',
