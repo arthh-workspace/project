@@ -46,7 +46,7 @@
                 </li> --}}
 
                 {{-- Admin --}}
-                @can('admin')
+                @if (Str::length(Auth::guard('admin')->user()) > 0)
                     <li class="nav-item">
                         <a href="{{ route('admin') }}" class="nav-link" id="Dashboard">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -79,7 +79,7 @@
                             </li>
                         </ul>
                     </li>
-                @endcan
+                @endif
                 {{-- Gugus Kendali --}}
                 @can('gugus_kendali')
                     <li class="nav-item">
@@ -138,7 +138,7 @@
                     </li>
                 @endif
                 {{-- Mahasiswa --}}
-                @can('mahasiswa')
+                @if (Str::length(Auth::guard('mahasiswa')->user()) > 0)
                     <li class="nav-item">
                         <a href="{{ route('mahasiswa') }}" class="nav-link" id="Dashboard">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -148,13 +148,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('kuisioner') }}" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Kuesioner
+                            <p>Kuesioner</p>
                         </a>
                     </li>
-                @endcan
+                @endif
 
                 {{-- Super Dosen 1 --}}
                 @can('super_dosen1')
