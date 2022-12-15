@@ -1,15 +1,16 @@
 <?php
 
 use App\Models\Dosen;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserDController;
 use App\Http\Controllers\Admin\UserMController;
 use App\Http\Controllers\Dosen\DosenController;
+use App\Http\Controllers\Dosen\KontrolkuisController;
 use App\Http\Controllers\Mahasiswa\KuisionerController;
 use App\Http\Controllers\Mahasiswa\MahasiswaController;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------

@@ -52,14 +52,14 @@ class KuisionerController extends Controller
             'nama_matkul'=>'required',
             'kesesuaian' => 'required',
             'id_jadwal'  => 'required',
-            'id_rps_mingguan' => 'required'
+            'id_rps_mingguan' => 'required',
+            'capaian_pembelajaran_pertemuan' => 'required'
         ]);
 
-        $perkuliahan = perkuliahan::create([
+        $perkuliahan=perkuliahan::create([
             'id_jadwal' => $request->id_jadwal,
             'id_mahasiswa' => auth()->user()->id,
         ]);
-
 
         evaluasi_rps_pertemuan::create([
             'id_rps_mingguan' => $request->id_rps_mingguan,

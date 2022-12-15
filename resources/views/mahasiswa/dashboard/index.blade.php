@@ -17,7 +17,7 @@
                 class="rounded-circle img-fluid" style="width: 150px;">
                 <h1 style="font-family: 'Garamond', Times, serif; font-size: 25px; align: right; margin-left: -40px; margin-top: 30px">{{ Auth::guard('mahasiswa')->user()->nama }}</h1>
               <button class="btn btn-primary btn-sm" style="margin-left: 40px"><i
-                class="mr-2 nav-icon fas fa-edit"></i>Edit</button>
+                class="mr-2 nav-icon fas fa-edit" ></i>Edit</button>
             </div>
     <div class="col-md-4">
       <div class="card-body">
