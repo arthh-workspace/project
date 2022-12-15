@@ -104,10 +104,10 @@
                                     </label>
                                 </div>
                             </div>
-                            <!-- /.card-body -->
-                            <div class="card-footer justify-content-between">
-                                <button type="submit" class="btn btn-primary float-left">Submit</button>
-                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer justify-content-between">
+                            <button type="submit" class="btn btn-primary float-left">Submit</button>
                         </div>
                     </form>
                 </div>
