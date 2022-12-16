@@ -136,6 +136,25 @@
                             </p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            @if(Auth::guard('dosen')->user()->id == DB::table('koordinators')->select('id_dosen')->count())
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown button
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">koor</a>
+                            @else
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown button
+                              </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Koor</a>
+                                    <a class="dropdown-item" href="#">Gugus Kendali</a>
+                                    <a class="dropdown-item" href="#">Dosen Pengampu</a>
+                            @endif
+                          </div>
+                    </li>
                 @endif
                 {{-- Mahasiswa --}}
                 @if (Str::length(Auth::guard('mahasiswa')->user()) > 0)

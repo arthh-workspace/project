@@ -26,7 +26,7 @@
               <p class="mb-0">Nama</p>
             </div>
             <div class="col-sm-9">
-              <p class="mb-0">{{ Auth::guard('dosen')->user()->nama }}</p>
+              <p class="mb-0">{{ Auth::guard('dosen')->user()->id }}</p>
             </div>
           </div>
           <hr>

@@ -52,6 +52,10 @@ return [
             'driver' => 'session',
             'provider' => 'admins'
         ],
+        'koor' => [
+            'driver' => 'session',
+            'provider' => 'koordinators'
+        ]
     ],
 
     /*
@@ -84,6 +88,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Mahasiswa::class,
         ],
+        'koordinators' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\koordinator::class,
+        ]
         // 'users' => [
         //     'driver' => 'eloquent',
         //     'model' => App\Models\User::class,
