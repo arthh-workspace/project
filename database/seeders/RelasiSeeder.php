@@ -68,7 +68,7 @@ class RelasiSeeder extends Seeder
             'jenis_kelamin'         => 'P',
             'username'              => 'dosen2',
             'email'                 => 'dosen2@gmail.com',
-            'password'              => bcrypt('1'),
+            'password'              => bcrypt('2'),
             'foto'                  => 'dosen',
         ));
         gugus_kendali::create(array(
@@ -82,7 +82,7 @@ class RelasiSeeder extends Seeder
             'jenis_kelamin'         => 'L',
             'username'              => 'dosen3',
             'email'                 => 'dosen3@gmail.com',
-            'password'              => bcrypt('1'),
+            'password'              => bcrypt('3'),
             'foto'                  => 'dosen',
         ));
 
@@ -99,12 +99,12 @@ class RelasiSeeder extends Seeder
             'jenis_kelamin'         => 'P',
             'username'              => 'dosen4',
             'email'                 => 'dosen4@gmail.com',
-            'password'              => bcrypt('1'),
+            'password'              => bcrypt('4'),
             'foto'                  => 'dosen',
         ));
         jadwal::create(array(
             'id_dosen' => $dosen4->id,
-            'id_koor'  => $dosenkoor->id,
+            'id_koor'  => $dosenkoor2->id,
             'hari'     => '2022-12-12',
             'ruang'    => 'B4.7',
             'waktu'     => date(now()),

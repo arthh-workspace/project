@@ -21,4 +21,7 @@ class jadwal extends Model
     {
         return $this->belongsToMany(Mahasiswa::class, 'perkuliahans');
     }
+    public static function getIdDosenyId($id){
+        return koordinator::where('id', $id)->pluck('id_dosen')->first();
+    }
 }

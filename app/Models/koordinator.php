@@ -20,4 +20,8 @@ class koordinator extends Model
     public function dosenmatkul(){
         $this ->hasMany('App\Models\jadwal', 'id_koor');
     }
+
+    public static function getIdDosenyId($id){
+        return koordinator::where('id', $id)->pluck('id_dosen')->first();
+    }
 }
