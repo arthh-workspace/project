@@ -136,6 +136,7 @@
                             </p>
                         </a>
                     </li>
+<<<<<<< HEAD
                 @endif --}}
                 @can('koor')
                     <li class="nav-item has-treeview" id="masteruser">
@@ -181,51 +182,150 @@
                         </a>
                     </li>
                 @endif
+=======
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            {{-- @can('isDosenOnly')
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown button
+                              </button>
+                            @elsecan('isDosenGkm')
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown button
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Gkm</a>
+                            @elsecan('isDosenKoor')
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown button
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">koor</a>
+                            @elsecan('isDosenMatkul')
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown button
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">matkul</a>
+                            @endcan --}}
+                            {{-- @if (Auth::guard('dosen')->user()->id ==
+    DB::table('dosens')->select('id')->count())
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown button
+                              </button> --}}
+                            @if (Auth::guard('dosen')->user()->id ==
+                                DB::table('koordinators')->select('id_dosen')->count() &&
+                                DB::table('gugus_kendalis')->select('id_dosen')->count() &&
+                                DB::table('jadwals')->select('id_dosen')->count())
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dropdown button
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Koor</a>
+                                    <a class="dropdown-item" href="#">Gugus Kendali</a>
+                                    <a class="dropdown-item" href="#">Dosen Pengampu</a>
+                                </div>
+                            @elseif (Auth::guard('dosen')->user()->id ==
+                                DB::table('koordinators')->select('id_dosen')->count())
+                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Dropdown button
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Koor</a>
+                                </div>
+                            @elseif (Auth::guard('dosen')->user()->id ==
+                                DB::table('gugus_kendalis')->select('id_dosen')->count())
+                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Dropdown button
+                                </button>
+                                <a class="dropdown-item" href="#">Gugus Kendali</a>
+                        </div>
+                    @elseif (Auth::guard('dosen')->user()->id ==
+                        DB::table('jadwals')->select('id_dosen')->count())
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown button
+                        </button>
+                        <a class="dropdown-item" href="#">Dosen Pengampu</a>
+    </div>
+@else
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        ndak punya akses
+    </button>
+    </div>
+    @endif
+    </div>
+    </li>
+    @endif
+    {{-- Mahasiswa --}}
+    @if (Str::length(Auth::guard('mahasiswa')->user()) > 0)
+        <li class="nav-item">
+            <a href="{{ route('mahasiswa') }}" class="nav-link" id="Dashboard">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                    Dashboard
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('kuisioner') }}" class="nav-link" id="kuisioner">
+                <i class="nav-icon fas fa-th"></i>
+                <p>Kuesioner</p>
+            </a>
+        </li>
+    @endif
+>>>>>>> cda134fb455d054f5a786c80d4ade462877a5abe
 
-                {{-- Super Dosen 1 --}}
-                @can('super_dosen1')
-                    <li class="nav-item">
-                        <a href="{{ route('dosenp1') }}" class="nav-link" id="Dashboard">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Kontrol Kuesioner
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item has-treeview" id="masteruser">
-                        <a href="#" class="nav-link" id="user">
-                            <i class="nav-icon fas fa-users"></i>
-                            <p> Login Sebagai
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('dosenp1') }}" class="nav-link" id="dosen">
-                                    <i class="nav-icon fas fa-user"></i>
-                                    <p>Dosen Pengampu </p>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('dosenk1') }}" class="nav-link" id="mahasiswa">
-                                    <i class="nav-icon fas fa-user"></i>
-                                    <p>Dosen Koor </p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @endcan
-                <!-- /.sidebar -->
+    {{-- Super Dosen 1 --}}
+    @can('super_dosen1')
+        <li class="nav-item">
+            <a href="{{ route('dosenp1') }}" class="nav-link" id="Dashboard">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                    Dashboard
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                    Kontrol Kuesioner
+                </p>
+            </a>
+        </li>
+        <li class="nav-item has-treeview" id="masteruser">
+            <a href="#" class="nav-link" id="user">
+                <i class="nav-icon fas fa-users"></i>
+                <p> Login Sebagai
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ route('dosenp1') }}" class="nav-link" id="dosen">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>Dosen Pengampu </p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ route('dosenk1') }}" class="nav-link" id="mahasiswa">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>Dosen Koor </p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    @endcan
+    <!-- /.sidebar -->
 </aside>
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
