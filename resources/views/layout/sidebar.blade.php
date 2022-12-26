@@ -100,9 +100,9 @@
                     </li>
                 @endcan
                 {{-- Dosen Koor --}}
-                @can('dosen_koor')
+                @if (Str::length(Auth::guard('dosen')->user()) > 0)
                     <li class="nav-item">
-                        <a href="{{ route('dosen_koor') }}" class="nav-link" id="Dashboard">
+                        <a href="{{ route('dosen') }}" class="nav-link" id="Dashboard">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Dashboard
@@ -110,16 +110,16 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('dosen.kontrol')}}" class="nav-link" id="kontrol">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
-                                RPS
+                                Kontrol Kuisioner
                             </p>
                         </a>
                     </li>
-                @endcan
+                @endif
                 {{-- Dosen Pengampu --}}
-                @if (Str::length(Auth::guard('dosen')->user()) > 0)
+                {{-- @if (Str::length(Auth::guard('dosen')->user()->koor()-) > 0)
                     <li class="nav-item">
                         <a href="{{ route('dosen') }}" class="nav-link" id="Dashboard">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -136,6 +136,53 @@
                             </p>
                         </a>
                     </li>
+<<<<<<< HEAD
+                @endif --}}
+                @can('koor')
+                    <li class="nav-item has-treeview" id="masteruser">
+                        <a href="#" class="nav-link" id="user">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p> Login Sebagai
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" id="dosen">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p>Koor </p>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" id="mahasiswa">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p>Gugus </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endcan
+
+                {{-- Mahasiswa --}}
+                @if (Str::length(Auth::guard('mahasiswa')->user()) > 0)
+                    <li class="nav-item">
+                        <a href="{{ route('mahasiswa') }}" class="nav-link" id="Dashboard">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Dashboard
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('kuisioner') }}" class="nav-link" id="kuisioner">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>Kuesioner</p>
+                        </a>
+                    </li>
+                @endif
+=======
                     <li class="nav-item">
                         <div class="dropdown">
                             @if (Auth::guard('dosen')->user()->id ==
@@ -168,46 +215,43 @@
                                     aria-expanded="false">
                                     Dropdown button
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Gugus Kendali</a>
-                                </div>
-                            @elseif (Auth::guard('dosen')->user()->id ==
-                                DB::table('jadwals')->select('id_dosen')->count())
-                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    Dropdown button
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Dosen Pengampu</a>
-                                </div>
-                            @else
-                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    ndak punya akses
-                                </button>
-                            @endif
+                                <a class="dropdown-item" href="#">Gugus Kendali</a>
                         </div>
-                    </li>
-                @endif
-                {{-- Mahasiswa --}}
-                @if (Str::length(Auth::guard('mahasiswa')->user()) > 0)
-                    <li class="nav-item">
-                        <a href="{{ route('mahasiswa') }}" class="nav-link" id="Dashboard">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('kuisioner') }}" class="nav-link" id="kuisioner">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>Kuesioner</p>
-                        </a>
-                    </li>
-                @endif
+                    @elseif (Auth::guard('dosen')->user()->id ==
+                        DB::table('jadwals')->select('id_dosen')->count())
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown button
+                        </button>
+                        <a class="dropdown-item" href="#">Dosen Pengampu</a>
+    </div>
+@else
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        ndak punya akses
+    </button>
+    </div>
+    @endif
+    </div>
+    </li>
+    @endif
+    {{-- Mahasiswa --}}
+    @if (Str::length(Auth::guard('mahasiswa')->user()) > 0)
+        <li class="nav-item">
+            <a href="{{ route('mahasiswa') }}" class="nav-link" id="Dashboard">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                    Dashboard
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('kuisioner') }}" class="nav-link" id="kuisioner">
+                <i class="nav-icon fas fa-th"></i>
+                <p>Kuesioner</p>
+            </a>
+        </li>
+    @endif
 
                 {{-- Super Dosen 1 --}}
                 @can('super_dosen1')
