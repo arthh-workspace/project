@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+
+use App\Models\koordinator;
+use Illuminate\Support\Facades\Gate;
 use App\Models\Dosen;
 use App\Models\gugus_kendali;
 use App\Models\jadwal;
-use App\Models\koordinator;
-use Illuminate\Support\Facades\Gate;
+
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Auth;
@@ -43,6 +45,7 @@ class AuthServiceProvider extends ServiceProvider
          Gate::define('isDosenMatkul', function($user) {
             return Auth::guard('dosen')->user()->id == jadwal::where("id_dosen")->count();
          });
+
 
     }
 }

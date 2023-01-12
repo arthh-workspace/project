@@ -144,7 +144,7 @@
                                 </div>
                             </div> --}}
                             <div class="form-group">
-                                <label for="kesesuaian">Kesesuaian :</label> <br>
+                                <label for="jenis_kelamin">Jenis Kelamin :</label> <br>
                                 <div class="form-check form-check-inline">
                                     <label for="kesesuaian">
                                         <input type="radio" name="kesesuaian" value="S" id="kesesuaian">Sesuai

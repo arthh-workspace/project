@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\gugus_kendali;
+use App\Models\jadwal;
+use App\Models\koordinator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -33,6 +36,8 @@ class LoginController extends Controller
         Session::flash('message', 'login wrong!!');
 
         return redirect('/');
+
+
     }
 
     public function logout(Request $request)
