@@ -2,12 +2,20 @@
 
 namespace App\Providers;
 
+<<<<<<< HEAD
+=======
+
+use App\Models\koordinator;
+use Illuminate\Support\Facades\Gate;
+>>>>>>> c4a11937e111e05cf990cbb1a08c2292a837b125
 use App\Models\Dosen;
 use App\Models\gugus_kendali;
 use App\Models\jadwal;
-use App\Models\koordinator;
-use Illuminate\Support\Facades\Gate;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c4a11937e111e05cf990cbb1a08c2292a837b125
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Stmt\Do_;
@@ -44,5 +52,9 @@ class AuthServiceProvider extends ServiceProvider
             return Auth::guard('dosen')->user()->id == jadwal::where("id_dosen")->count();
          });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c4a11937e111e05cf990cbb1a08c2292a837b125
     }
 }

@@ -14,4 +14,7 @@ class gugus_kendali extends Model
     public function dosen(){
         return $this->belongsTo('App\Models\Dosen', 'id_dosen');
     }
+    public static function getIdDosenyId($id){
+        return koordinator::where('id', $id)->pluck('id_dosen')->first();
+    }
 }
