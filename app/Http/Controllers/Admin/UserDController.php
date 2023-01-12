@@ -47,6 +47,7 @@ class UserDController extends Controller
             'jenis_kelamin' => 'required',
             'username' => 'required',
             'email' => 'required',
+            'role'  =>  'required',
             'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
@@ -66,6 +67,7 @@ class UserDController extends Controller
             'jenis_kelamin' => $request->jenis_kelamin,
             'username' => $request->username,
             'email' => $request->email,
+            'role' => $request->role,
             'password' => Hash::make('1'),
             'foto' => 'images/dosen/' . $new_gambar,
         ]);
@@ -114,6 +116,7 @@ class UserDController extends Controller
             'jenis_kelamin' => 'required',
             'username' => 'required',
             'email' => 'required',
+            'role' => 'required',
             'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
@@ -129,6 +132,7 @@ class UserDController extends Controller
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'username' => $request->username,
                 'email' => $request->email,
+                'role' => $request->role,
                 'foto' => 'images/dosen/' . $new_foto,
             ];
             $gambar->storeAs('public/images/dosen', $new_foto);

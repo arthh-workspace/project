@@ -22,11 +22,12 @@ class KuisionerController extends Controller
     public function index()
     {
         $dosen = Dosen::all();
-        $matkul = matkul::latest()->get();
+        $matkul = matkul::all();
         $evaluasi = evaluasi_rps_pertemuan::all();
         $jadwal = jadwal::all();
+        $rps = rps::all();
         $pertemuan = rps_pertemuan::all();
-        return view('mahasiswa.kuisioner.index', compact('dosen', 'matkul', 'evaluasi','jadwal','pertemuan'));
+        return view('mahasiswa.kuisioner.index', compact('rps', 'dosen', 'matkul', 'evaluasi', 'jadwal', 'pertemuan'));
     }
 
     /**
@@ -39,6 +40,16 @@ class KuisionerController extends Controller
         return view('mahasiswa.kuisioner.result');
     }
 
+    public function getcapaian($id)
+    {
+        $course = rps::where('id_matkul', $id)->get();
+        return response()->json($course);
+    }
+    // public function getDesa(Request $request){
+    //     $desa = Desa::where("desa_kec",$request->kecID)->pluck('desa_kode','desa_nama');
+    //     return response()->json($desa);
+    // }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -49,14 +60,14 @@ class KuisionerController extends Controller
     {
         $this->validate($request, [
             'nama'      => 'required',
-            'nama_matkul'=>'required',
+            'nama_matkul' => 'required',
             'kesesuaian' => 'required',
             'id_jadwal'  => 'required',
             'id_rps_mingguan' => 'required',
             'capaian_pembelajaran_pertemuan' => 'required'
         ]);
 
-        $perkuliahan=perkuliahan::create([
+        $perkuliahan = perkuliahan::create([
             'id_jadwal' => $request->id_jadwal,
             'id_mahasiswa' => auth()->user()->id,
         ]);

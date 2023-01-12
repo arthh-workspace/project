@@ -94,11 +94,11 @@
                                         </div>
                                     </div>
                                 </div> --}}
-                                {{-- <div class="form-group">
-                                    <label for="role">Role</label>
+                                <div class="form-group">
+                                    <label for="role">Sebagai</label>
                                     <select name="role" value="{{ old('role') }}"
                                         class="form-control @error('role') is-invalid @enderror">
-                                        <option value="">-- Pilih Role --</option>
+                                        <option value="">-- Pilih Sebagai --</option>
                                         <option value="admin">Admin</option>
                                         <option value="gugus_kendali">Gugus Kendali</option>
                                         <option value="dosen_koor">Dosen Koor</option>
@@ -113,7 +113,7 @@
                                             Role tidak boleh kosong.
                                         @enderror
                                     </div>
-                                </div> --}}
+                                </div>
                                 <div class="form-group">
                                     <label for="foto">Pilih File</label>
                                     <div class="input-group">

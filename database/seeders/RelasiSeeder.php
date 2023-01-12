@@ -30,6 +30,7 @@ class RelasiSeeder extends Seeder
             'jenis_kelamin'         => 'L',
             'username'              => 'dosen1',
             'email'                 => 'dosen1@gmail.com',
+            'role'                  => 'super_dosen1',
             'password'              => bcrypt('1'),
             'foto'                  => 'dosen',
         ));

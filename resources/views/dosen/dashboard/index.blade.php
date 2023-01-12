@@ -15,11 +15,6 @@
                 <div class="col-md-3" style="margin-left: 110px;  margin-top: 30px;">
                     <img src="{{ Storage::url(Auth::guard('dosen')->user()->foto) }}" alt="avatar"
                         class="rounded-circle img-fluid" style="width: 150px;">
-                    <h1
-                        style="font-family: 'Garamond', Times, serif; font-size: 25px; align: right; margin-left: -40px; margin-top: 30px">
-                        {{ Auth::guard('dosen')->user()->nama }}</h1>
-                    <a href="#" class="btn btn-primary btn-sm" style="margin-left: 40px"><i
-                            class="mr-2 nav-icon fas fa-edit"></i> Edit</a>
                 </div>
                 <div class="col-md-4">
                     <div class="card-body">
@@ -28,7 +23,7 @@
                                 <p class="mb-0">Nama</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="mb-0">{{ Auth::guard('dosen')->user()->id }}</p>
+                                <p class="mb-0">{{ Auth::guard('dosen')->user()->nama }}</p>
                             </div>
                         </div>
                         <hr>

@@ -6,10 +6,15 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserDController;
 use App\Http\Controllers\Admin\UserMController;
-use App\Http\Controllers\Dosen\DosenController;
-use App\Http\Controllers\Dosen\KontrolkuisController;
+use App\Http\Controllers\dosen\DosenController;
+use App\Http\Controllers\dosen\KontrolkuisController;
+use App\Http\Controllers\dosen\CetakLaporanController;
 use App\Http\Controllers\Mahasiswa\KuisionerController;
 use App\Http\Controllers\Mahasiswa\MahasiswaController;
+use App\Http\Controllers\Super_dosen1\SuperD1Controller;
+use App\Http\Controllers\Super_dosen2\SuperD2Controller;
+use App\Http\Controllers\Super_dosen3\SuperD3Controller;
+use App\Http\Controllers\Super_dosen4\SuperD4Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,13 +55,47 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::patch('/user_mahasiswa/update/{id}', [UserMController::class, 'update'])->name('user.mahasiswa.update');
     Route::delete('/user_mahasiswa/destroy/{id}', [UserMController::class, 'destroy'])->name('user.mahasiswa.destroy');
 });
+
+
 // Dosen
 Route::group(['middleware' => 'auth:dosen'], function () {
     ////////// Dashboard /////////
     Route::get('/dosen', [DosenController::class, 'index'])->name('dosen');
+    //Dosen Pengampu
     ////////// Kontrol Kuis //////
     Route::get('/dosen/kontrolkuis', [KontrolkuisController::class, 'index'])->name('dosen.kontrol');
+    //Gugus Kendali
+    ////////// Cetak Laporan //////
+    Route::get('/dosen/cetaklaporan', [CetakLaporanController::class, 'index'])->name('gugus.cetak');
+
+    // Super Dosen 1
+    Route::group(['middleware' => ['cekRole:super_dosen1']], function () {
+        ////////// Dashboard /////////
+        Route::get('/dosenp1', [SuperD1Controller::class, 'dosenp'])->name('dosenp1');
+        Route::get('/dosenk1', [SuperD1Controller::class, 'dosenk'])->name('dosenk1');
+    });
+    // Super Dosen 2
+    Route::group(['middleware' => ['cekRole:super_dosen2']], function () {
+        ////////// Dashboard /////////
+        Route::get('/dosenp2', [SuperD2Controller::class, 'dosenp'])->name('dosenp2');
+        Route::get('/gugusk2', [SuperD2Controller::class, 'gugusk'])->name('gugusk2');
+    });
+    // Super Dosen 3
+    Route::group(['middleware' => ['cekRole:super_dosen3']], function () {
+        ////////// Dashboard /////////
+        Route::get('/dosenk3', [SuperD3Controller::class, 'dosenk'])->name('dosenk3');
+        Route::get('/gugusk3', [SuperD3Controller::class, 'gugusk'])->name('gugusk3');
+    });
+    // Super Dosen 4
+    Route::group(['middleware' => ['cekRole:super_dosen3']], function () {
+        ////////// Dashboard /////////
+        Route::get('/dosenp4', [SuperD4Controller::class, 'dosenp'])->name('dosenp4');
+        Route::get('/dosenk4', [SuperD4Controller::class, 'dosenk'])->name('dosenk4');
+        Route::get('/gugusk4', [SuperD4Controller::class, 'gugusk'])->name('gugusk4');
+    });
 });
+
+
 // Mahasiswa
 Route::group(['middleware' => 'auth:mahasiswa'], function () {
     ////////// Dashboard /////////
@@ -66,18 +105,19 @@ Route::group(['middleware' => 'auth:mahasiswa'], function () {
     Route::patch('/mahasiswa/editpofile', [MahasiswaController::class, 'store'])->name('mahasiswa.editprofile');
     ////////// Kuisioner /////////
     Route::get('/mahasiswa/kuisioner', [KuisionerController::class, 'index'])->name('kuisioner');
+    Route::get('/getcapaian/{id}', [KuisionerController::class, 'getcapaian']);
     Route::post('/mahasiswa/kuisioner/store', [KuisionerController::class, 'store'])->name('kuisioner.store');
     Route::get('/mahasiswa/kuisioner/result', [KuisionerController::class, 'result'])->name('kuisioner.result');
 });
 
-Route::get('relasi-1', function(){
-    $dosen = App\Models\gugus_kendali::where('id','=','1')->first();
+Route::get('relasi-1', function () {
+    $dosen = App\Models\gugus_kendali::where('id', '=', '1')->first();
 
     return $dosen->dosen->nama;
 });
 
-Route::get('relasi-2', function(){
-    $dosenkoor = App\Models\Dosen::where('username','=','dosen1')->first();
+Route::get('relasi-2', function () {
+    $dosenkoor = App\Models\Dosen::where('username', '=', 'dosen1')->first();
 
     return $dosenkoor->koor->semester;
 });

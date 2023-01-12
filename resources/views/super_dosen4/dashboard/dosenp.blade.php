@@ -13,8 +13,13 @@
         <div class="card mb-4 elevation-3" style=" border-radius: 10px">
             <div class="row no-gutters">
                 <div class="col-md-3" style="margin-left: 110px;  margin-top: 30px;">
-                    <img src="{{ Storage::url(Auth::guard('mahasiswa')->user()->foto) }}" alt="avatar"
+                    <img src="{{ Storage::url(Auth::guard('dosen')->user()->foto) }}" alt="avatar"
                         class="rounded-circle img-fluid" style="width: 150px;">
+                    <h1
+                        style="font-family: 'Garamond', Times, serif; font-size: 25px; align: right; margin-left: -40px; margin-top: 30px">
+                        {{ Auth::guard('dosen')->user()->nama }}</h1>
+                    <a href="#" class="btn btn-primary btn-sm" style="margin-left: 40px"><i
+                            class="mr-2 nav-icon fas fa-edit"></i> Edit</a>
                 </div>
                 <div class="col-md-4">
                     <div class="card-body">
@@ -23,56 +28,34 @@
                                 <p class="mb-0">Nama</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="mb-0">{{ Auth::guard('mahasiswa')->user()->nama }}</p>
+                                <p class="mb-0">{{ Auth::guard('dosen')->user()->id }}</p>
                             </div>
                         </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">NIM</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{ Auth::guard('mahasiswa')->user()->nim }}</p>
-                            </div>
-                        </div>
-
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Email</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{ Auth::guard('mahasiswa')->user()->email }}</p>
-                            </div>
-                        </div>
-
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Kelas</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{ Auth::guard('mahasiswa')->user()->kelas }}</p>
-                            </div>
-                        </div>
-
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Prodi</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{ Auth::guard('mahasiswa')->user()->prodi }}</p>
-                            </div>
-                        </div>
-
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
                                 <p class="mb-0">Jenis Kelamin</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{ Auth::guard('mahasiswa')->user()->jenis_kelamin }}</p>
+                                <p class="text-muted mb-0">{{ Auth::guard('dosen')->user()->jenis_kelamin }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Email</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{ Auth::guard('dosen')->user()->email }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">NIP</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{ Auth::guard('dosen')->user()->nip }}</p>
                             </div>
                         </div>
                     </div>
@@ -84,5 +67,8 @@
 @section('script')
     <script type="text/javascript">
         $("#Dashboard").addClass("active");
+        $("#masteruser").addClass("menu-open");
+        $("#user").addClass("active");
+        $("#dosenp4").addClass("active");
     </script>
 @endsection

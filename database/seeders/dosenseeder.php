@@ -24,6 +24,7 @@ class dosenseeder extends Seeder
                 'email'                 => 'dosen@gmail.com',
                 'email_verified_at'     => NULL,
                 'password'              => bcrypt('1'),
+                'role'                  => 'dosen_pengampu',
                 'foto'                  => 'images/dosen/default.jpg',
                 'remember_token'        => null,
                 'created_at'            => '2021-05-17 04:21:52',

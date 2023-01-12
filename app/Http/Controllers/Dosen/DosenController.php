@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dosen;
+namespace App\Http\Controllers\dosen;
 
 use App\Models\Dosen;
 use Illuminate\Http\Request;

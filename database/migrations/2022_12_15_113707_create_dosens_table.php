@@ -21,6 +21,10 @@ return new class extends Migration
             $table->string('username');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->enum('role', ['gugus_kendali','dosen_koor',
+                                'dosen_pengampu','super_dosen1',
+                                  'super_dosen2','super_dosen3','super_dosen4']
+                    )->default('dosen_koor');
             $table->string('password');
             $table->string('foto');
             $table->rememberToken();

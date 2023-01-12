@@ -80,90 +80,239 @@
                         </ul>
                     </li>
                 @endif
-                {{-- Gugus Kendali --}}
-                @can('gugus_kendali')
-                    <li class="nav-item">
-                        <a href="{{ route('gugus_kendali') }}" class="nav-link" id="Dashboard">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Cetak Laporan
-                            </p>
-                        </a>
-                    </li>
-                @endcan
-                {{-- Dosen Koor --}}
                 @if (Str::length(Auth::guard('dosen')->user()) > 0)
-                    <li class="nav-item">
-                        <a href="{{ route('dosen') }}" class="nav-link" id="Dashboard">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('dosen.kontrol')}}" class="nav-link" id="kontrol">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Kontrol Kuisioner
-                            </p>
-                        </a>
-                    </li>
+                    @if (Auth::guard('dosen')->user()->role == 'dosen_pengampu')
+                        {{-- Dosen Pengampu --}}
+                        <li class="nav-item">
+                            <a href="{{ route('dosen') }}" class="nav-link" id="Dashboard">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('dosen.kontrol') }}" class="nav-link" id="kontrols">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Kontrol Kuesioner
+                                </p>
+                            </a>
+                        </li>
+                    @endif
+                    @if (Auth::guard('dosen')->user()->role == 'dosen_koor')
+                        <li class="nav-item">
+                            <a href="{{ route('dosen') }}" class="nav-link" id="Dashboard">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    RPS
+                                </p>
+                            </a>
+                        </li>
+                    @endif
+                    @if (Auth::guard('dosen')->user()->role == 'gugus_kendali')
+                        <li class="nav-item">
+                            <a href="{{ route('dosen') }}" class="nav-link" id="Dashboard">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('gugus.cetak') }}" class="nav-link" id="cetak">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Cetak Laporan
+                                </p>
+                            </a>
+                        </li>
+                    @endif
+                    @if (Auth::guard('dosen')->user()->role == 'super_dosen1')
+                        <li class="nav-item">
+                            <a href="{{ route('dosenp1') }}" class="nav-link" id="Dashboard">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('dosen.kontrol') }}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Kontrol Kuesioner
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview" id="masteruser">
+                            <a href="#" class="nav-link" id="user">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p> Login Sebagai
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('dosenp1') }}" class="nav-link" id="dosenp1">
+                                        <i class="nav-icon fas fa-user"></i>
+                                        <p>Dosen Pengampu </p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('dosenk1') }}" class="nav-link" id="dosenk1">
+                                        <i class="nav-icon fas fa-user"></i>
+                                        <p>Dosen Koor </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
+                    @if (Auth::guard('dosen')->user()->role == 'super_dosen2')
+                        <li class="nav-item">
+                            <a href="{{ route('dosenp2') }}" class="nav-link" id="Dashboard">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('dosen.kontrol') }}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Kontrol Kuesioner
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview" id="masteruser">
+                            <a href="#" class="nav-link" id="user">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p> Login Sebagai
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('dosenp2') }}" class="nav-link" id="dosenp2">
+                                        <i class="nav-icon fas fa-user"></i>
+                                        <p>Dosen Pengampu </p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('gugusk2') }}" class="nav-link" id="gugusk2">
+                                        <i class="nav-icon fas fa-user"></i>
+                                        <p>Gugus Kendali </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
+                    @if (Auth::guard('dosen')->user()->role == 'super_dosen3')
+                        <li class="nav-item">
+                            <a href="{{ route('dosenk3') }}" class="nav-link" id="Dashboard">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    RPS
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview" id="masteruser">
+                            <a href="#" class="nav-link" id="user">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p> Login Sebagai
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('dosenk3') }}" class="nav-link" id="dosenk3">
+                                        <i class="nav-icon fas fa-user"></i>
+                                        <p>Dosen Koor </p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('gugusk3') }}" class="nav-link" id="gugusk3">
+                                        <i class="nav-icon fas fa-user"></i>
+                                        <p>Gugus Kendali </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
+                    @if (Auth::guard('dosen')->user()->role == 'super_dosen4')
+                        <li class="nav-item">
+                            <a href="{{ route('dosenp4') }}" class="nav-link" id="Dashboard">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('dosen.kontrol') }}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Kontrol Kuesioner
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview" id="masteruser">
+                            <a href="#" class="nav-link" id="user">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p> Login Sebagai
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('dosenp4') }}" class="nav-link" id="dosenp4">
+                                        <i class="nav-icon fas fa-user"></i>
+                                        <p>Dosen Pengampu </p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('dosenk4') }}" class="nav-link" id="dosenk4">
+                                        <i class="nav-icon fas fa-user"></i>
+                                        <p>Dosen Koor </p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('gugusk4') }}" class="nav-link" id="gugusk4">
+                                        <i class="nav-icon fas fa-user"></i>
+                                        <p>Gugus Kendali </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
                 @endif
-                {{-- Dosen Pengampu --}}
-                {{-- @if (Str::length(Auth::guard('dosen')->user()->koor()-) > 0)
-                    <li class="nav-item">
-                        <a href="{{ route('dosen') }}" class="nav-link" id="Dashboard">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('dosen.kontrol') }}" class="nav-link" id="kontrols">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Kontrol Kuesioner
-                            </p>
-                        </a>
-                    </li>
-<<<<<<< HEAD
-                @endif --}}
-                @can('koor')
-                    <li class="nav-item has-treeview" id="masteruser">
-                        <a href="#" class="nav-link" id="user">
-                            <i class="nav-icon fas fa-users"></i>
-                            <p> Login Sebagai
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" id="dosen">
-                                    <i class="nav-icon fas fa-user"></i>
-                                    <p>Koor </p>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" id="mahasiswa">
-                                    <i class="nav-icon fas fa-user"></i>
-                                    <p>Gugus </p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @endcan
 
                 {{-- Mahasiswa --}}
                 @if (Str::length(Auth::guard('mahasiswa')->user()) > 0)
@@ -182,150 +331,7 @@
                         </a>
                     </li>
                 @endif
-=======
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            {{-- @can('isDosenOnly')
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown button
-                              </button>
-                            @elsecan('isDosenGkm')
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown button
-                              </button>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Gkm</a>
-                            @elsecan('isDosenKoor')
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown button
-                              </button>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">koor</a>
-                            @elsecan('isDosenMatkul')
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown button
-                              </button>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">matkul</a>
-                            @endcan --}}
-                            {{-- @if (Auth::guard('dosen')->user()->id ==
-    DB::table('dosens')->select('id')->count())
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown button
-                              </button> --}}
-                            @if (Auth::guard('dosen')->user()->id ==
-                                DB::table('koordinators')->select('id_dosen')->count() &&
-                                DB::table('gugus_kendalis')->select('id_dosen')->count() &&
-                                DB::table('jadwals')->select('id_dosen')->count())
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown button
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Koor</a>
-                                    <a class="dropdown-item" href="#">Gugus Kendali</a>
-                                    <a class="dropdown-item" href="#">Dosen Pengampu</a>
-                                </div>
-                            @elseif (Auth::guard('dosen')->user()->id ==
-                                DB::table('koordinators')->select('id_dosen')->count())
-                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    Dropdown button
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Koor</a>
-                                </div>
-                            @elseif (Auth::guard('dosen')->user()->id ==
-                                DB::table('gugus_kendalis')->select('id_dosen')->count())
-                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    Dropdown button
-                                </button>
-                                <a class="dropdown-item" href="#">Gugus Kendali</a>
-                        </div>
-                    @elseif (Auth::guard('dosen')->user()->id ==
-                        DB::table('jadwals')->select('id_dosen')->count())
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown button
-                        </button>
-                        <a class="dropdown-item" href="#">Dosen Pengampu</a>
-    </div>
-@else
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        ndak punya akses
-    </button>
-    </div>
-    @endif
-    </div>
-    </li>
-    @endif
-    {{-- Mahasiswa --}}
-    @if (Str::length(Auth::guard('mahasiswa')->user()) > 0)
-        <li class="nav-item">
-            <a href="{{ route('mahasiswa') }}" class="nav-link" id="Dashboard">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                    Dashboard
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('kuisioner') }}" class="nav-link" id="kuisioner">
-                <i class="nav-icon fas fa-th"></i>
-                <p>Kuesioner</p>
-            </a>
-        </li>
-    @endif
->>>>>>> cda134fb455d054f5a786c80d4ade462877a5abe
-
-    {{-- Super Dosen 1 --}}
-    @can('super_dosen1')
-        <li class="nav-item">
-            <a href="{{ route('dosenp1') }}" class="nav-link" id="Dashboard">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                    Dashboard
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                    Kontrol Kuesioner
-                </p>
-            </a>
-        </li>
-        <li class="nav-item has-treeview" id="masteruser">
-            <a href="#" class="nav-link" id="user">
-                <i class="nav-icon fas fa-users"></i>
-                <p> Login Sebagai
-                    <i class="fas fa-angle-left right"></i>
-                </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="{{ route('dosenp1') }}" class="nav-link" id="dosen">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>Dosen Pengampu </p>
-                    </a>
-                </li>
-            </ul>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="{{ route('dosenk1') }}" class="nav-link" id="mahasiswa">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>Dosen Koor </p>
-                    </a>
-                </li>
-            </ul>
-        </li>
-    @endcan
-    <!-- /.sidebar -->
+                <!-- /.sidebar -->
 </aside>
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">

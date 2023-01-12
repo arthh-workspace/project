@@ -7,9 +7,8 @@
 @endsection
 @section('content')
     <h1>Pengisian Berhasil</h1>
-    <a href="{{ route('mahasiswa') }}" class="btn btn-default"><i
-        class='nav-icon fas fa-arrow-left'></i>
-    &nbsp; Kembali</a>
+    <a href="{{ route('mahasiswa') }}" class="btn btn-default"><i class='nav-icon fas fa-arrow-left'></i>
+        &nbsp; Kembali</a>
 @endsection
 @section('script')
     <script type="text/javascript">

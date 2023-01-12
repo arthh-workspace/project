@@ -6,7 +6,7 @@ use App\Models\rps;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class KontrolkuisController extends Controller
+class CetakLaporanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class KontrolkuisController extends Controller
      */
     public function index()
     {
-        return view('dosen.kontrol_kuis.index');
+        return view('dosen.cetak_laporan.index');
     }
 
     /**

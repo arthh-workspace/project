@@ -28,6 +28,7 @@
                                         <th>No</th>
                                         <th width="30%">Nama</th>
                                         <th>Username</th>
+                                        <th>Sebagai</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -37,6 +38,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $data->nama }}</td>
                                             <td>{{ $data->username }}</td>
+                                            <td>{{ $data->role }}</td>
                                             <td>
                                                 <form action="{{ route('user.dosen.destroy', $data->id) }}" method="post">
                                                     @csrf
@@ -159,12 +161,11 @@
                                     </div>
                                 </div>
                             </div> --}}
-                            {{-- <div class="form-group">
-                                <label for="role">Role</label>
+                            <div class="form-group">
+                                <label for="role">Sebagai</label>
                                 <select name="role" value="{{ old('role') }}"
                                     class="form-control @error('role') is-invalid @enderror">
-                                    <option value="">-- Pilih Role --</option>
-                                    <option value="admin">Admin</option>
+                                    <option value="">-- Pilih Sebagai --</option>
                                     <option value="gugus_kendali">Gugus Kendali</option>
                                     <option value="dosen_koor">Dosen Koor</option>
                                     <option value="dosen_pengampu">Dosen Pengampu</option>
@@ -178,7 +179,7 @@
                                         Role tidak boleh kosong.
                                     @enderror
                                 </div>
-                            </div> --}}
+                            </div>
                             <div class="form-group">
                                 <label for="foto" class="form-label">Foto </label>
                                 <div class="input-group">
